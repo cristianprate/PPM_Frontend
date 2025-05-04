@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="it">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navbar Responsive</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* Aggiungi visibilità per i social solo quando il menu è aperto */
+        .navbar-collapse.show .social-buttons.d-md-none {
+            display: flex;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        /* Rimuove i social nel menu hamburger quando il menu è chiuso */
+        .navbar-collapse .social-buttons.d-md-none {
+            display: none;
+        }
+
+        /* Navbar personalizzata con sfondo rosso */
+        .navbar-custom {
+            background-color: red; /* Sfondo rosso per la navbar */
+            padding: 1rem 2rem;
+            height: 100px;
+        }
+
+        /* Colore dei link nel menu principale */
+        .navbar-nav .nav-link {
+            color: #fff;
+            font-size: 1.5rem;
+            padding: 10px 50px;
+        }
+
+        .social-buttons button,
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+        }
+
+        /* Popup ricerca */
+        .popup-box {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 10px;
+            background-color: white;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+            z-index: 1050;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Bottom bar per i link */
+        .bottom-bar {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-top: 20px;
+        }
+
+        .bottom-bar .links-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            flex-wrap: nowrap;
+        }
+
+        .bottom-bar .nav-link {
+            color: #000;
+            font-size: 1rem;
+            text-align: center;
+            white-space: nowrap;
+            padding: 10px 5px;
+            text-decoration: none;
+        }
+
+        .bottom-bar .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-brand {
+                display: none;
+            }
+
+            .navbar-collapse {
+                background-color: black; /* Sfondo nero per il menu a scorrimento */
+                padding: 1rem 0;
+                position: absolute;
+                top: 100px;
+                left: 0;
+                width: 100%;
+                height: calc(100vh - 100px);
+                overflow-y: auto;
+                z-index: 1040;
+            }
+
+            .navbar-collapse ul li {
+                text-align: center;
+                margin-bottom: 10px;
+            }
+
+            .right-icons {
+                position: absolute;
+                top: 8px;
+                right: 16px;
+            }
+
+            body.mobile-menu-open {
+                overflow: hidden;
+            }
+
+            /* Mostra i pulsanti social e nascondi cerca */
+            body.mobile-menu-open .right-icons #searchBtn {
+                display: none !important;
+            }
+
+            body.mobile-menu-open .social-buttons.d-md-none {
+                display: flex !important;
+                justify-content: center;
+                margin-top: 1rem;
+            }
+        }
+
+        /* Sfondo rosso per la navbar principale */
+        .navbar-custom {
+            background-color: red;
+        }
+
+        /* Cambiamo il colore del testo del menu a scorrimento in bianco */
+        .navbar-nav .nav-link {
+            color: white !important;
+        }
+
+        /* Cambiamo il colore di hover dei link del menu a scorrimento */
+        .navbar-nav .nav-link:hover {
+            color: #ddd !important;
+        }
+
+        /* Colore bianco per l'icona hamburger */
+        .navbar-toggler-icon {
+            background-color: white;
+        }
+
+        .bottom-bar {
+            background-color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-custom">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>  <!-- Icona hamburger -->
+        </button>
+
+        <a class="navbar-brand d-none d-md-block" href="#">
+            <img src="https://via.placeholder.com/50" alt="Logo" width="50" height="50">
+        </a>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Servizi</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Chi siamo</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Contatti</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">Supporto</a></li>
+            </ul>
+
+        </div>
+
+        <!-- Icone a destra -->
+        <div class="d-flex align-items-center right-icons">
+            <!-- Social MOBILE: inizialmente nascosti -->
+            <div class="social-buttons d-md-none d-none" id="socialMobileTop">
+                <button title="Facebook"><i class="bi bi-facebook"></i></button>
+                <button title="Instagram"><i class="bi bi-instagram"></i></button>
+                <button title="X"><i class="bi bi-twitter"></i></button>
+            </div>
+
+            <!-- Social DESKTOP -->
+            <div class="social-buttons d-none d-md-flex">
+                <button title="Facebook"><i class="bi bi-facebook"></i></button>
+                <button title="Instagram"><i class="bi bi-instagram"></i></button>
+                <button title="X"><i class="bi bi-twitter"></i></button>
+            </div>
+
+            <!-- Pulsante ricerca -->
+            <button id="searchBtn" class="icon-btn" title="Cerca">
+                <i class="bi bi-search"></i>
+            </button>
+
+            <!-- Registrati/Login -->
+            <button id="registerBtn" class="icon-btn" title="Registrati/Login">
+                <i class="bi bi-person-circle"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Link Bar -->
+<div class="bottom-bar">
+    <div class="links-wrapper">
+        <a class="nav-link" href="#">Link 1</a>
+        <a class="nav-link" href="#">Link 2</a>
+        <a class="nav-link" href="#">Link 3</a>
+        <a class="nav-link" href="#">Link 4</a>
+        <a class="nav-link" href="#">Link 5</a>
+        <a class="nav-link" href="#">Link 6</a>
+        <a class="nav-link" href="#">Link 7</a>
+        <a class="nav-link" href="#">Link 8</a>
+        <a class="nav-link" href="#">Link 9</a>
+        <a class="nav-link" href="#">Link 10</a>
+        <a class="nav-link" href="#">Link 11</a>
+        <a class="nav-link" href="#">Link 12</a>
+    </div>
+</div>
+
+<!-- Popup ricerca -->
+<div id="searchPopup" class="popup-box">
+    <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Cerca...">
+        <button class="btn btn-primary" type="submit">Vai</button>
+    </form>
+</div>
+
+<!-- Popup registrazione -->
+<div id="registerPopup" class="popup-box">
+    <form>
+        <label for="emailInput" class="form-label">Inserisci email:</label>
+        <input type="email" class="form-control mb-2" id="emailInput" placeholder="email@example.com" required>
+        <button type="submit" class="btn btn-primary w-100">Invia</button>
+    </form>
+</div>
+
+<!-- Script Bootstrap + comportamento -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    const searchBtn = document.getElementById('searchBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const searchPopup = document.getElementById('searchPopup');
+    const registerPopup = document.getElementById('registerPopup');
+    const navbarCollapse = document.getElementById('navbarNav');
+    const socialMobileTop = document.getElementById('socialMobileTop');
+
+    searchBtn.addEventListener('click', () => {
+        const isVisible = searchPopup.style.display === 'block';
+        searchPopup.style.display = isVisible ? 'none' : 'block';
+        if (!isVisible) searchPopup.querySelector('input').focus();
+        registerPopup.style.display = 'none';
+    });
+
+    registerBtn.addEventListener('click', () => {
+        const isVisible = registerPopup.style.display === 'block';
+        registerPopup.style.display = isVisible ? 'none' : 'block';
+        searchPopup.style.display = 'none';
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!searchBtn.contains(event.target) && !searchPopup.contains(event.target)) {
+            searchPopup.style.display = 'none';
+        }
+        if (!registerBtn.contains(event.target) && !registerPopup.contains(event.target)) {
+            registerPopup.style.display = 'none';
+        }
+    });
+
+    // Aggiunta classe quando il menu hamburger si apre/chiude
+    navbarCollapse.addEventListener('shown.bs.collapse', () => {
+        document.body.classList.add('mobile-menu-open');
+        if (window.innerWidth < 768) {
+            searchBtn.style.display = 'none';
+            socialMobileTop.classList.remove('d-none');
+            socialMobileTop.classList.add('d-flex');
+        }
+    });
+
+    navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+        document.body.classList.remove('mobile-menu-open');
+        if (window.innerWidth < 768) {
+            searchBtn.style.display = 'inline-block';
+            socialMobileTop.classList.remove('d-flex');
+            socialMobileTop.classList.add('d-none');
+        }
+    });
+</script>
+
+</body>
+</html>
