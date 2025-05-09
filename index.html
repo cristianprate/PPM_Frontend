@@ -8,32 +8,53 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <style>
-        /* Aggiungi visibilità per i social solo quando il menu è aperto */
-        .navbar-collapse.show .social-buttons.d-md-none {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
+
+        body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
 
-        /* Rimuove i social nel menu hamburger quando il menu è chiuso */
-        .navbar-collapse .social-buttons.d-md-none {
-            display: none;
-        }
-
-        /* Navbar personalizzata con sfondo rosso */
+        /*-----------------------MAIN(RED) NAV BAR---------------*/
+        /* Custom red navbar */
         .navbar-custom {
-            background-color: red; /* Sfondo rosso per la navbar */
+            background-color: red;
             padding: 1rem 2rem;
-            height: 100px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1050;
         }
 
-        /* Colore dei link nel menu principale */
+        /* Styling for navigation links */
         .navbar-nav .nav-link {
             color: #fff;
             font-size: 1.5rem;
             padding: 10px 50px;
         }
 
+        /* White text for navigation links */
+        .navbar-nav .nav-link {
+            color: white;
+        }
+
+        /* Hover color for navigation links */
+        .navbar-nav .nav-link:hover {
+            color: #817b7b;
+        }
+
+        /* Hide social buttons in hamburger menu when closed */
+        .navbar-collapse .social-buttons.d-md-none {
+            display: none;
+        }
+
+        /* Add space below fixed navbar */
+        body {
+            padding-top: 100px;
+        }
+
+        /* Styling for social and icon buttons */
         .social-buttons button,
         .icon-btn {
             background: none;
@@ -44,57 +65,24 @@
             color: white;
         }
 
-        /* Popup ricerca */
-        .popup-box {
-            display: none;
-            position: fixed;
-            top: 70px;
-            right: 10px;
-            background-color: white;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 250px;
-            z-index: 1050;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        /* Bottom bar per i link */
-        .bottom-bar {
-            background-color: #fff;
-            border-bottom: 1px solid #ddd;
-            overflow-x: auto;
-            white-space: nowrap;
-            margin-top: 20px;
-        }
-
-        .bottom-bar .links-wrapper {
-            display: flex;
-            justify-content: space-between;
-            padding: 0 2rem;
-            flex-wrap: nowrap;
-        }
-
-        .bottom-bar .nav-link {
-            color: #000;
-            font-size: 1rem;
-            text-align: center;
-            white-space: nowrap;
-            padding: 10px 5px;
-            text-decoration: none;
-        }
-
-        .bottom-bar .nav-link:hover {
-            text-decoration: underline;
-        }
-
-        @media (max-width: 767.98px) {
+        /* Responsive for red navbar behavior */
+        @media (max-width: 992px) {
+            /* Hide brand logo on small screens */
             .navbar-brand {
                 display: none;
             }
 
+            /* Larger icons for social buttons view */
+            .icon-btn, .social-buttons button {
+                font-size: 2rem;
+                margin-left: 20px;
+                margin-right: 10px;
+                margin-top: 15px;
+            }
+
+            /* Mobile menu styling */
             .navbar-collapse {
-                background-color: black; /* Sfondo nero per il menu a scorrimento */
+                background-color: black;
                 padding: 1rem 0;
                 position: absolute;
                 top: 100px;
@@ -105,87 +93,653 @@
                 z-index: 1040;
             }
 
+            .navbar-custom {
+                background-color: red;
+                padding: 1rem 2rem;
+                height: 100px;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                z-index: 1050;
+            }
+
+            /* Center align menu items */
             .navbar-collapse ul li {
                 text-align: center;
                 margin-bottom: 10px;
             }
 
+
+            /* Position right-side icons */
             .right-icons {
                 position: absolute;
                 top: 8px;
                 right: 16px;
             }
 
+            /* Increase top padding for mobile layout */
+            body {
+                padding-top: 120px;
+            }
+
+            /* Disable scroll when menu is open */
             body.mobile-menu-open {
                 overflow: hidden;
             }
 
-            /* Mostra i pulsanti social e nascondi cerca */
+            /* Hide search button in mobile menu */
             body.mobile-menu-open .right-icons #searchBtn {
-                display: none !important;
+                display: none;
             }
 
+            /* Show social buttons in mobile menu */
             body.mobile-menu-open .social-buttons.d-md-none {
-                display: flex !important;
+                display: flex;
                 justify-content: center;
-                margin-top: 1rem;
+                margin-top: 0;
             }
         }
 
-        /* Sfondo rosso per la navbar principale */
-        .navbar-custom {
-            background-color: red;
-        }
+        /*---------------------POP UP BOXES(search+login)------------------------*/
 
-        /* Cambiamo il colore del testo del menu a scorrimento in bianco */
-        .navbar-nav .nav-link {
-            color: white !important;
-        }
-
-        /* Cambiamo il colore di hover dei link del menu a scorrimento */
-        .navbar-nav .nav-link:hover {
-            color: #ddd !important;
-        }
-
-        /* Colore bianco per l'icona hamburger */
-        .navbar-toggler-icon {
+        /* Styling for search popup box */
+        .popup-box-search {
+            display: none;
+            position: fixed;
+            top: 70px;
+            right: 10px;
             background-color: white;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+            z-index: 1050;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
+        .popup-box-login {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+            z-index: 1050;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /*----------------------NAVIGATION LINKS-----------------------*/
+        /* Styling for bottom bar links */
+        .bottom-bar .nav-link {
+            color: #6c6262;
+            font-size: 1rem;
+            text-align: center;
+            white-space: nowrap;
+            padding: 10px 5px;
+            text-decoration: none;
+            -ms-overflow-style: none;  /* Per IE e Edge */
+            scrollbar-width: none;     /* Per Firefox */
+
+        }
+
+        /* Nascondi scrollbar per Chrome, Safari e Opera */
+        .bottom-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Bottom navigation bar */
+        .bottom-bar {
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            overflow-x: auto;
+            white-space: nowrap;
+            margin-top: 20px;
+        }
+
+        /* Layout for links in bottom bar */
+        .bottom-bar .links-wrapper {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 2rem;
+            flex-wrap: nowrap;
+        }
+
+        /* Ensure white background for bottom bar */
         .bottom-bar {
             background-color: #ffffff;
         }
+
+        /* Hover effect for bottom bar links */
+        .bottom-bar .nav-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .bottom-bar .nav-link {
+                color: #000000;
+                font-weight: 600;
+            }
+        }
+
+
+        /*-------------NEWS SECTION(main+aside coloumn)------------------*/
+
+        .card {
+            border-radius: 0 !important;
+            border: none !important;
+            margin-bottom: 20px;
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .card-body {
+            text-align: left; /* Allinea il testo a sinistra */
+            padding-left: 0 !important; /* Rimuove il padding sinistro */
+            padding-right: 0 !important; /* Rimuove il padding destro */
+        }
+
+        .card-title, .card-text {
+            text-align: left; /* Assicura che anche titoli e testo siano allineati a sinistra */
+        }
+
+        .card-img-top {
+            border-radius: 0 !important;
+        }
+
+        /*MAIN CARD*/
+        /* Card main body styling */
+        .card-body-main {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            text-align: center !important;
+            padding: 1rem;
+        }
+
+        .main-img {
+            border-bottom: 10px solid red; /* Crea una linea rossa sottile */
+        }
+
+        /* Main column spacing and border */
+        .main-column {
+            border-right: 1px solid #ddd;
+            padding-right: 20px;
+            margin-bottom: 20px;
+        }
+
+        /*BIG NEWS CARD*/
+        .big-news-card {
+            border-radius: 0;
+            border: none;
+            background-color: #2c2c2c;
+
+        }
+
+        .big-news-card .card-title {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            margin-left: 1rem;
+            margin-top: 1rem;
+            color: #fff;
+        }
+
+        @media (max-width: 576px) {
+            .big-news-container {
+                margin-bottom: 3.5rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        /*PAIRED NEWS*/
+        /* Margin for paired news items */
+        .row.news-row .col-md-6 {
+            margin-bottom: 20px;
+        }
+
+        /* Responsive behavior for columns */
+        @media (max-width: 768px) {
+            .news-row {
+                flex-direction: column;
+            }
+
+            .main-column,
+            .aside-column {
+                width: 100%;
+                padding-right: 0;
+                padding-left: 0;
+                border-right: none;
+                margin-bottom: 20px;
+            }
+
+        }
+
+        /*ASIDE NEWS CARD*/
+        /* Aside column spacing */
+        .aside-column {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+
+        /*BOOKMARKS*/
+        .card-body {
+            padding-bottom: 3rem; /* Spazio per il pulsante bookmark */
+        }
+
+        .bookmark-btn i.bi-bookmark {
+            color: red;
+            margin-right: 0;
+        }
+
+        .bookmark-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: none;
+            border: none;
+            color: #606060;
+            padding: 8px 12px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            margin-left: auto;
+        }
+
+        .card-body-main .bookmark-btn {
+            color: #ffffff;
+        }
+
+        .big-news-card .bookmark-btn {
+            margin-left: 10px;
+            margin-right: auto;
+            color: #ffffff;
+        }
+
+        .bookmark-btn i {
+            font-size: 0.7rem;
+        }
+
+
+        /*POSTCODE SECTION*/
+        .postcode-section {
+            width: 100%;
+            margin: 2rem 0;
+            margin-bottom: 7rem !important;
+            height: 250px;
+            position: relative;
+
+        }
+
+        .postcode-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .background-image {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+        }
+
+        .postcode-content {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start; /* Cambiato da center a flex-start */
+            padding: 20px;
+            padding-left: 40px; /* Aggiunto padding a sinistra per non attaccare troppo al bordo */
+        }
+
+        .input-group {
+            width: 80%;
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 1);
+            border-radius: 0.25rem;
+            padding: 3px;
+            align-self: flex-start; /* Aggiunto per assicurare l'allineamento a sinistra */
+        }
+
+        .input-group .form-control {
+            border: none;
+            background: transparent;
+        }
+
+        .input-group .form-control:focus {
+            box-shadow: none;
+            background: white;
+        }
+
+        .go-btn {
+            min-width: 60px;
+        }
+
+        .postcode-text {
+            color: white;
+            font-size: 5rem;
+            margin-bottom: 0.2rem;
+            align-self: flex-start; /* Aggiunto per assicurare l'allineamento a sinistra */
+        }
+
+        .postcode-subtext {
+            color: #e0e0e0; /* grigio chiaro */
+            font-size: 1.7rem; /* dimensione più piccola del testo */
+            margin-top: -0.5rem; /* riduce lo spazio tra titolo e sottotitolo */
+            margin-bottom: 1rem;
+            align-self: flex-start; /* mantiene l'allineamento a sinistra */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ombra per leggibilità come il titolo */
+        }
+
+        .red-overlay {
+            position: absolute;
+            right: 0;
+            top: -10%; /* Spostiamo del 50% sopra */
+            height: 120%; /* Altezza del contenitore + extra spazio sopra e sotto */
+            width: 250px;
+            margin-right: 20px;
+            background-color: red;
+            z-index: 2;
+            display: flex; /* Aggiungiamo flex per gestire meglio il contenuto */
+            flex-direction: column; /* Organizziamo gli elementi in colonna */
+            justify-content: space-between; /* Distribuisce lo spazio tra gli elementi */
+            align-items: center; /* Centra orizzontalmente gli elementi */
+            padding: 20px 10px;
+
+        }
+
+        .red-overlay-title {
+            color: white;
+            font-size: 1.8rem; /* Dimensione grande per il titolo */
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.2; /* Migliora la leggibilità per testi su più righe */
+            margin: 0;
+            margin-top: 5rem;
+        }
+
+        .red-overlay-subtitle {
+            color: white;
+            font-size: 0.9rem; /* Dimensione piccola per il sottotitolo */
+            text-align: center;
+            opacity: 0.9; /* Leggermente trasparente */
+            margin: 0;
+        }
+
+
+        /*FULLPAGE COMPONENT*/
+        .fullpage-news {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .fullpage-news-wrapper {
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+            margin-bottom: 5rem;
+        }
+
+
+        .fullpage-news .bookmark-btn {
+            color: #ffffff;
+        }
+
+        .fullpage-news__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .fullpage-news__background-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: blur(8px);
+        }
+
+        .fullpage-news__content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .fullpage-news__text {
+            position: relative;
+            max-width: 45%;
+            padding-left: 8rem;
+        }
+
+        .fullpage-news__title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .fullpage-news__subtitle {
+            color: #e0e0e0;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+
+        .fullpage-news__image-wrapper {
+            width: 45%;
+            height: 400px;
+            overflow: hidden;
+            margin-right: 7rem;
+        }
+
+        .fullpage-news__image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+
+            .fullpage-news__content {
+                flex-direction: column-reverse;
+                justify-content: flex-start;
+                background: none; /* Rimuove lo sfondo scuro trasparente */
+            }
+
+            .fullpage-news__text {
+                max-width: 100%;
+                width: 100vw; /* Usa viewport width per occupare tutta la larghezza */
+                background-color: #000;
+
+
+            }
+
+
+            .fullpage-news__image-wrapper {
+                width: 100%;
+                height: 250px;
+                margin-right: 0;
+                position: relative;
+            }
+
+            .fullpage-news__image-wrapper::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 50px; /* Altezza del fade */
+                background: linear-gradient(to bottom, transparent, #000); /* Effetto fade verso il nero */
+                pointer-events: none; /* Permette di cliccare attraverso il fade */
+            }
+
+            .fullpage-news {
+                height: auto;
+                min-height: 500px;
+            }
+
+            .fullpage-news__title {
+                text-align: center;
+                max-width: 90%; /* Dà un po' di respiro ai lati */
+                margin-left: -3rem;
+                margin-right: auto;
+
+                font-size: 2rem;
+            }
+
+            .fullpage-news__subtitle {
+                display:none;
+            }
+
+            /* Rimuoviamo lo sfondo sfocato su mobile */
+            .fullpage-news__background {
+                display: none;
+            }
+        }
+
+
+        /*FOOTER*/
+        .footer {
+            background-color: #000;
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .footer-section {
+            margin: 1.5rem auto;
+        }
+
+
+        .footer-divider {
+            width: 80%;
+            height: 5px;
+            background-color: #333;
+            margin: 1rem auto;
+        }
+
+        .footer a {
+            color: #606060;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        .footer .links a {
+            font-size: 1.6rem; /* aumenta la dimensione del testo */
+            color: #ccc; /* grigio chiaro */
+            text-decoration: none;
+            margin: 0 5rem;
+        }
+
+        .footer .links a:hover,
+        .footer .legal a:hover {
+            text-decoration: underline;
+        }
+
+        .footer .social-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .footer .social-buttons button {
+            width: 24px;
+            height: 24px;
+            margin: 0 3rem;
+            vertical-align: middle;
+            position: relative;
+        }
+
+        .footer .images img {
+            width: 100px;
+            height: 50px;
+            margin: 0 0.5rem;
+        }
+
+        .footer .legal {
+            font-size: 0.7rem;
+            line-height: 1.5;
+            flex-wrap: wrap;
+            max-width: 90%;
+            margin: 0 auto;
+        }
+
+        .footer .legal a {
+            margin: 0 0.3rem;
+        }
+
+        /* Responsive per schermi piccoli */
+        @media (max-width: 576px) {
+            .footer .links {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+                padding: 0 1rem;
+            }
+
+            .footer .links a {
+                width: 100%;
+                margin: 0;
+                font-size: 1.4rem;
+                text-align: center;
+            }
+        }
+
     </style>
 </head>
-<body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-md navbar-custom">
+<body>
+<!-- RED NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>  <!-- Icona hamburger -->
+        <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>  <!-- Hamburger icon -->
         </button>
 
-        <a class="navbar-brand d-none d-md-block" href="#">
-            <img src="https://via.placeholder.com/50" alt="Logo" width="50" height="50">
+        <a class="navbar-brand d-none d-lg-block" href="#">
+            <img src="assets/logo.jpg" alt="Logo" height="55" width="100">
         </a>
 
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Servizi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Chi siamo</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Contatti</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Blog</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Supporto</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">NEWS</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">POLITICS</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">FOOTBALL</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">SPORT</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">TV</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">LIFE</a></li>
+                <li class="nav-item"><a class="nav-link" href="#">MORE</a></li>
             </ul>
 
         </div>
 
-        <!-- Icone a destra -->
+        <!-- DX icons -->
         <div class="d-flex align-items-center right-icons">
-            <!-- Social MOBILE: inizialmente nascosti -->
+            <!-- Social MOBILE: hide on desktop -->
             <div class="social-buttons d-md-none d-none" id="socialMobileTop">
                 <button title="Facebook"><i class="bi bi-facebook"></i></button>
                 <button title="Instagram"><i class="bi bi-instagram"></i></button>
@@ -199,12 +753,12 @@
                 <button title="X"><i class="bi bi-twitter"></i></button>
             </div>
 
-            <!-- Pulsante ricerca -->
+            <!-- Search btn -->
             <button id="searchBtn" class="icon-btn" title="Cerca">
                 <i class="bi bi-search"></i>
             </button>
 
-            <!-- Registrati/Login -->
+            <!-- Login btn -->
             <button id="registerBtn" class="icon-btn" title="Registrati/Login">
                 <i class="bi bi-person-circle"></i>
             </button>
@@ -212,42 +766,420 @@
     </div>
 </nav>
 
-<!-- Link Bar -->
+<!-- LINK BAR -->
 <div class="bottom-bar">
     <div class="links-wrapper">
-        <a class="nav-link" href="#">Link 1</a>
-        <a class="nav-link" href="#">Link 2</a>
-        <a class="nav-link" href="#">Link 3</a>
-        <a class="nav-link" href="#">Link 4</a>
-        <a class="nav-link" href="#">Link 5</a>
-        <a class="nav-link" href="#">Link 6</a>
-        <a class="nav-link" href="#">Link 7</a>
-        <a class="nav-link" href="#">Link 8</a>
-        <a class="nav-link" href="#">Link 9</a>
-        <a class="nav-link" href="#">Link 10</a>
-        <a class="nav-link" href="#">Link 11</a>
-        <a class="nav-link" href="#">Link 12</a>
+        <a class="nav-link" href="#">BUY A PAPER</a>
+        <a class="nav-link" href="#">ROAD RECORD</a>
+        <a class="nav-link" href="#">PROPERTY</a>
+        <a class="nav-link" href="#">PUBLIC NOTICES</a>
+        <a class="nav-link" href="#">COMPETITIONS</a>
+        <a class="nav-link" href="#">HOROSCOPES</a>
+        <a class="nav-link" href="#">DEALS</a>
+        <a class="nav-link" href="#">FUNERAL NOTICES</a>
+        <a class="nav-link" href="#">JOBS</a>
+        <a class="nav-link" href="#">CROSSWORDS</a>
+        <a class="nav-link" href="#">ADV WITH US</a>
+        <a class="nav-link" href="#">NEWSLETTER SING UP</a>
     </div>
 </div>
 
-<!-- Popup ricerca -->
-<div id="searchPopup" class="popup-box">
-    <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Cerca...">
-        <button class="btn btn-primary" type="submit">Vai</button>
-    </form>
+<!-- NEWS SECTION -->
+<div class="container">
+    <!-- Main news row-->
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card">
+                <img src="assets/placeholder2000x1200.jpg" class="card-img-top img-fluid main-img"
+                     alt="Notizia principale">
+                <div class="card-body-main">
+                    <h2>NUOVA ASSOCIAZIONE DI VOLONTARIATO - commuove lo sforzo collettivo per
+                        aiutare chi ne ha bisogno</h2>
+                    <p style="color: #857d7d; font-size: 1.2em; ">Scopri come una comunità si è unita
+                        per fondare una nuova associazione di volontariato</p>
+                    <button class="bookmark-btn">
+                        <span>Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4 aligned news row -->
+    <div class="row mb-4">
+        <div class="col-sm-3">
+            <div class="card">
+                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+                <div class="card-body">
+                    <h5 class="card-title">Nuova apertura cinema in centro</h5>
+                    <button class="bookmark-btn">
+                        <span>Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+                <div class="card-body">
+                    <h5 class="card-title">Nuovo brand di felpe spopola nel mercato dei giovani.</h5>
+                    <button class="bookmark-btn">
+                        <span>Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+                <div class="card-body">
+                    <h5 class="card-title">Perditi anche tu nella natura nel nuovo parco aperto in via Napoleone.</h5>
+                    <button class="bookmark-btn">
+                        <span>Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="card">
+                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+                <div class="card-body">
+                    <h5 class="card-title">Un writer in città si firma su tutti i muri. Scoppia la polemica.</h5>
+                    <button class="bookmark-btn">
+                        <span>Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- News + aside column row-->
+    <div class="row news-row">
+        <!-- Main(left) column for news -->
+        <div class="col-md-9 main-column">
+            <!-- Big news row-->
+            <div class="row g-0 justify-content-center">
+                <div class="col-md-5 big-news-card card-body">
+                    <h2 class="card-title">Titolo della Big News</h2>
+                    <button class="bookmark-btn">
+                        <span>Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </div>
+                <div class="col-md-7">
+                    <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
+                </div>
+            </div>
+            <!-- news row 1-->
+            <div class="row">
+                <!-- Two coloumn flow for news -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
+                        <div class="card-body">
+                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                            <button class="bookmark-btn">
+                                <span>Bookmark</span>
+                                <i class="bi bi-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
+                        <div class="card-body">
+                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                            <button class="bookmark-btn">
+                                <span>Bookmark</span>
+                                <i class="bi bi-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- news row 2-->
+            <div class="row">
+                <!-- Two coloumn flow for news -->
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
+                        <div class="card-body">
+                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                            <button class="bookmark-btn">
+                                <span>Bookmark</span>
+                                <i class="bi bi-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
+                        <div class="card-body">
+                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                            <button class="bookmark-btn">
+                                <span>Bookmark</span>
+                                <i class="bi bi-bookmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Aside news -->
+        <div class="col-md-3 aside-column">
+            <!-- aside news 1 -->
+            <div class="row g-2 mb-5">
+                <div class="col-4 col-md-8">
+                    <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                            Titolo della Notizia
+                        </h3>
+                        <button class="bookmark-btn">
+                            <span class="d-none d-sm-inline">Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- aside news 2 -->
+            <div class="row g-2 mb-5">
+                <div class="col-4 col-md-8">
+                    <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                            Titolo della Notizia
+                        </h3>
+                        <button class="bookmark-btn">
+                            <span class="d-none d-sm-inline">Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- aside news 3 -->
+            <div class="row g-2 mb-5">
+                <div class="col-4 col-md-8">
+                    <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                            Titolo della Notizia
+                        </h3>
+                        <button class="bookmark-btn">
+                            <span class="d-none d-sm-inline">Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- aside news 4 -->
+            <div class="row g-2 mb-5">
+                <div class="col-4 col-md-8">
+                    <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                            Titolo della Notizia
+                        </h3>
+                        <button class="bookmark-btn">
+                            <span class="d-none d-sm-inline">Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- aside news 5 -->
+            <div class="row g-2 mb-5">
+                <div class="col-4 col-md-8">
+                    <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                            Titolo della Notizia
+                        </h3>
+                        <button class="bookmark-btn">
+                            <span class="d-none d-sm-inline">Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- aside news 6 -->
+            <div class="row g-2 mb-5">
+                <div class="col-4 col-md-8">
+                    <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                            Titolo della Notizia
+                        </h3>
+                        <button class="bookmark-btn">
+                            <span class="d-none d-sm-inline">Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- aside news 7 -->
+            <div class="row g-2 mb-5">
+                <div class="col-4 col-md-8">
+                    <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
+                </div>
+                <div class="col-8 col-md-4">
+                    <div class="card-body">
+                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                            Titolo della Notizia
+                        </h3>
+                        <button class="bookmark-btn">
+                            <span class="d-none d-sm-inline">Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- postcode row -->
+    <div class="row postcode-section mb-5 mt-5">
+        <!-- postcode component -->
+        <div class="postcode-wrapper">
+            <div class="red-overlay">
+                <h2 class="red-overlay-title">In YourArea</h2>
+                <p class="red-overlay-subtitle">Local services</p>
+            </div>
+            <img src="assets/placeholder2000x1200.jpg" alt="Background" class="background-image img-fluid rounded">
+            <div class="postcode-content">
+                <h3 class="postcode-text">Enter your postcode</h3>
+                <p class="postcode-subtext">Find local news and information near you</p>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Enter postcode here...">
+                    <button class="btn btn-danger go-btn" type="button">Go</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- fullpage news row -->
+    <div class="container-fluid">
+            <!-- fullpage news component-->
+            <div class="fullpage-news-wrapper">
+                <div class="fullpage-news">
+                    <div class="fullpage-news__background">
+                        <img src="assets/placeholder800x400.jpg" alt="Background"
+                             class="fullpage-news__background-image img-fluid">
+                    </div>
+                    <div class="fullpage-news__content">
+                        <div class="fullpage-news__text">
+                            <div class="card-body">
+                                <h2 class="fullpage-news__title">Il tuo titolo qui</h2>
+                                <p class="fullpage-news__subtitle">Il tuo sottotitolo qui con testo più lungo e
+                                    descrittivo</p>
+                                <button class="bookmark-btn">
+                                    <span>Bookmark</span>
+                                    <i class="bi bi-bookmark"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="fullpage-news__image-wrapper">
+                            <img src="assets/placeholder800x400.jpg" alt="News" class="fullpage-news__image img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 </div>
 
-<!-- Popup registrazione -->
-<div id="registerPopup" class="popup-box">
-    <form>
-        <label for="emailInput" class="form-label">Inserisci email:</label>
-        <input type="email" class="form-control mb-2" id="emailInput" placeholder="email@example.com" required>
-        <button type="submit" class="btn btn-primary w-100">Invia</button>
-    </form>
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-section links">
+        <a href="#">NEWS</a>
+        <a href="#">SPORT</a>
+        <a href="#">CELEBS</a>
+        <a href="#">LIFE & STYLE</a>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-section social">
+        <div class="social-buttons">
+            <button title="Facebook"><i class="bi bi-facebook"></i></button>
+            <button title="Instagram"><i class="bi bi-instagram"></i></button>
+            <button title="X"><i class="bi bi-twitter"></i></button>
+        </div>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-section images">
+        <img src="https://via.placeholder.com/100x50" alt="Placeholder 1"/>
+        <img src="https://via.placeholder.com/100x50" alt="Placeholder 2"/>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-section legal">
+        <a href="#">Privacy</a> |
+        <a href="#">Cookie</a> |
+        <a href="#">Termini</a> |
+        <a href="#">Licenze</a> |
+        <a href="#">Trademarks</a> |
+        <a href="#">Contattaci</a> |
+        <a href="#">Mappa</a> |
+        <a href="#">Sviluppatori</a> |
+        <a href="#">Lavora con noi</a> |
+        <a href="#">Sostenibilità</a> |
+        <a href="#">Sicurezza</a> |
+        <a href="#">Supporto</a> |
+        <a href="#">Blog</a> |
+        <a href="#">Investitori</a> |
+        <a href="#">API</a> |
+        <a href="#">Accessibilità</a> |
+        <a href="#">Feedback</a> |
+        <a href="#">Beta</a> |
+        <a href="#">Stampa</a> |
+        <a href="#">Altro</a>
+    </div>
+</footer>
+
+<!-- POPUPS -->
+<div>
+    <!-- search popup -->
+    <div id="searchPopup" class="popup-box-search">
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Cerca...">
+            <button class="btn btn-primary" type="submit">Vai</button>
+        </form>
+    </div>
+
+    <!-- login popup -->
+    <div id="registerPopup" class="popup-box-login">
+        <form>
+            <label for="emailInput" class="form-label">Inserisci email:</label>
+            <input type="email" class="form-control mb-2" id="emailInput" placeholder="email@example.com" required>
+            <button type="submit" class="btn btn-primary w-100">Invia</button>
+        </form>
+    </div>
 </div>
 
-<!-- Script Bootstrap + comportamento -->
+<!-- Bootstrap script + behaviour -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     const searchBtn = document.getElementById('searchBtn');
@@ -279,22 +1211,42 @@
         }
     });
 
+    // Rileva il cambiamento delle dimensioni della finestra
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 992) {
+            // Se lo schermo è più grande di 992px, chiudi il menu
+            const navbarCollapse = document.getElementById('navbarNav');
+            if (navbarCollapse.classList.contains('show')) {
+                // Chiudi il menu
+                const bootstrapCollapse = new bootstrap.Collapse(navbarCollapse, {
+                    toggle: false // Impedisce l'uso del toggle
+                });
+                bootstrapCollapse.hide();
+            }
+        }
+    });
+
+
     // Aggiunta classe quando il menu hamburger si apre/chiude
     navbarCollapse.addEventListener('shown.bs.collapse', () => {
-        document.body.classList.add('mobile-menu-open');
         if (window.innerWidth < 768) {
-            searchBtn.style.display = 'none';
-            socialMobileTop.classList.remove('d-none');
-            socialMobileTop.classList.add('d-flex');
+            document.body.classList.add('mobile-menu-open');
+            if (window.innerWidth < 768) {
+                searchBtn.style.display = 'none';
+                socialMobileTop.classList.remove('d-none');
+                socialMobileTop.classList.add('d-flex');
+            }
         }
     });
 
     navbarCollapse.addEventListener('hidden.bs.collapse', () => {
-        document.body.classList.remove('mobile-menu-open');
         if (window.innerWidth < 768) {
-            searchBtn.style.display = 'inline-block';
-            socialMobileTop.classList.remove('d-flex');
-            socialMobileTop.classList.add('d-none');
+            document.body.classList.remove('mobile-menu-open');
+            if (window.innerWidth < 768) {
+                searchBtn.style.display = 'inline-block';
+                socialMobileTop.classList.remove('d-flex');
+                socialMobileTop.classList.add('d-none');
+            }
         }
     });
 </script>
