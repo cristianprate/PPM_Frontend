@@ -15,6 +15,11 @@
             overflow-x: hidden;
         }
 
+        figure {
+            margin-bottom: 0;
+            margin: 0;
+        }
+
         /*-----------------------MAIN(RED) NAV BAR---------------*/
         /* Custom red navbar */
         .navbar-custom {
@@ -231,7 +236,7 @@
         /*styling for base bootstrap component used in every news*/
         .card {
             border-radius: 0;
-            border: none ;
+            border: none;
             margin-bottom: 1.25rem;
             margin-top: 1.25rem;
             position: relative;
@@ -267,8 +272,8 @@
         /* Main column spacing and border */
         .main-column {
             border-right: 1px solid #ddd;
-            padding-right: 1.25rem;    /* 20px */
-            margin-bottom: 1.25rem;    /* 20px */
+            padding-right: 1.25rem; /* 20px */
+            margin-bottom: 1.25rem; /* 20px */
         }
 
         /*BIG NEWS CARD*/
@@ -304,7 +309,7 @@
                 padding-right: 0;
                 padding-left: 0;
                 border-right: none;
-                margin-bottom: 1.25rem;  /* 20px */
+                margin-bottom: 1.25rem; /* 20px */
             }
         }
 
@@ -521,14 +526,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-        }
-
-        .fullpage-news__background-image {
-            width: 100%;
-            height: 100%;
             object-fit: cover;
             filter: blur(0.5rem);
         }
+
 
         .fullpage-news__content {
             position: relative;
@@ -628,19 +629,12 @@
         /*CITATION COMPONENT*/
         .citation-component {
             width: 100%;
+            height: 100%;
             background-color: hsl(349, 100%, 96%);
             padding: 1rem 1rem 0 0;
             position: relative;
             border-bottom: 0.3125rem solid #4a4a4a;
             min-height: 18.75rem;
-            display: flex;
-        }
-
-        .citation-content {
-            position: relative;
-            height: 100%;
-            width: 100%;
-            min-height: inherit;
             display: flex;
             flex-direction: column;
         }
@@ -683,9 +677,6 @@
             .citation-component {
                 min-height: auto;
                 border-bottom: none;
-            }
-
-            .citation-content {
                 flex-direction: column;
                 align-items: start;
                 gap: 1rem;
@@ -817,8 +808,8 @@
 
 <body>
 <!-- RED NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-custom">
-    <div class="container-fluid">
+<header class="navbar navbar-expand-lg navbar-custom">
+    <nav class="container-fluid">
         <!-- hamburger menu -->
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -826,12 +817,12 @@
         </button>
 
         <!-- website logo -->
-        <a class="navbar-brand d-none d-lg-block" href="#">
+        <figure class="navbar-brand d-none d-lg-block" href="#">
             <img src="assets/logo.jpg" alt="Logo" height="55" width="100">
-        </a>
+        </figure>
 
         <!-- navbar menu -->
-        <div class="collapse navbar-collapse" id="navbarNav">
+        <article class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#">NEWS</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">POLITICS</a></li>
@@ -842,23 +833,23 @@
                 <li class="nav-item"><a class="nav-link" href="#">MORE</a></li>
             </ul>
 
-        </div>
+        </article>
 
         <!-- DX icons -->
-        <div class="d-flex align-items-center right-icons">
+        <article class="d-flex align-items-center right-icons">
             <!-- Social MOBILE: hide on desktop -->
-            <div class="social-buttons d-md-none d-none" id="socialMobileTop">
+            <figure class="social-buttons d-md-none d-none" id="socialMobileTop">
                 <button title="Facebook"><i class="bi bi-facebook"></i></button>
                 <button title="Instagram"><i class="bi bi-instagram"></i></button>
                 <button title="X"><i class="bi bi-twitter"></i></button>
-            </div>
+            </figure>
 
             <!-- Social DESKTOP -->
-            <div class="social-buttons d-none d-md-flex">
+            <figure class="social-buttons d-none d-md-flex">
                 <button title="Facebook"><i class="bi bi-facebook"></i></button>
                 <button title="Instagram"><i class="bi bi-instagram"></i></button>
                 <button title="X"><i class="bi bi-twitter"></i></button>
-            </div>
+            </figure>
 
             <!-- Search btn -->
             <button id="searchBtn" class="icon-btn" title="Cerca">
@@ -869,14 +860,14 @@
             <button id="registerBtn" class="icon-btn" title="Registrati/Login">
                 <i class="bi bi-person-circle"></i>
             </button>
-        </div>
-    </div>
-</nav>
+        </article>
+    </nav>
+</header>
 
 <!-- LINK BAR -->
-<div class="bottom-bar">
+<nav class="bottom-bar">
     <!-- links -->
-    <div class="links-wrapper">
+    <article class="links-wrapper">
         <a class="nav-link" href="#">BUY A PAPER</a>
         <a class="nav-link" href="#">ROAD RECORD</a>
         <a class="nav-link" href="#">PROPERTY</a>
@@ -889,172 +880,161 @@
         <a class="nav-link" href="#">CROSSWORDS</a>
         <a class="nav-link" href="#">ADV WITH US</a>
         <a class="nav-link" href="#">NEWSLETTER SING UP</a>
-    </div>
-</div>
+    </article>
+</nav>
 
 <!-- NEWS SECTION -->
-<div class="container">
+<main class="container">
     <!-- Main news row-->
-    <div class="row mb-4">
-        <div class="col-12">
-            <div class="card">
-                <img src="assets/placeholder2000x1200.jpg" class="card-img-top img-fluid main-img"
+    <section class="row mb-4">
+        <article class="col-12 card">
+            <figure class="card-img-top main-img mb-0">
+                <img src="assets/placeholder2000x1200.jpg" class="img-fluid"
                      alt="Notizia principale">
-                <div class="card-body-main">
-                    <h2>NUOVA ASSOCIAZIONE DI VOLONTARIATO - commuove lo sforzo collettivo per
-                        aiutare chi ne ha bisogno</h2>
-                    <p style="color: #857d7d; font-size: 1.2em; ">Scopri come una comunità si è unita
-                        per fondare una nuova associazione di volontariato</p>
-                    <button class="bookmark-btn">
-                        <span>Bookmark</span>
-                        <i class="bi bi-bookmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+            </figure>
+            <article class="card-body-main">
+                <h2>NUOVA ASSOCIAZIONE DI VOLONTARIATO - commuove lo sforzo collettivo per
+                    aiutare chi ne ha bisogno</h2>
+                <p style="color: #857d7d; font-size: 1.2em; ">Scopri come una comunità si è unita
+                    per fondare una nuova associazione di volontariato</p>
+                <button class="bookmark-btn">
+                    <span>Bookmark</span>
+                    <i class="bi bi-bookmark"></i>
+                </button>
+            </article>
+        </article>
+    </section>
 
     <!-- 4 aligned news row -->
-    <div class="row mb-4">
+    <section class="row mb-4">
         <!-- news 1 -->
-        <div class="col-sm-3">
-            <div class="card">
-                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
-                <div class="card-body">
-                    <h5 class="card-title">Nuova apertura cinema in centro</h5>
-                    <button class="bookmark-btn">
-                        <span>Bookmark</span>
-                        <i class="bi bi-bookmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+        <article class="card col-sm-3">
+            <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+            <article class="card-body">
+                <h5 class="card-title">Nuova apertura cinema in centro</h5>
+                <button class="bookmark-btn">
+                    <span>Bookmark</span>
+                    <i class="bi bi-bookmark"></i>
+                </button>
+            </article>
+        </article>
         <!-- news 2 -->
-        <div class="col-sm-3">
-            <div class="card">
-                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
-                <div class="card-body">
-                    <h5 class="card-title">Nuovo brand di felpe spopola nel mercato dei giovani.</h5>
-                    <button class="bookmark-btn">
-                        <span>Bookmark</span>
-                        <i class="bi bi-bookmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+        <article class="card col-sm-3">
+            <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+            <article class="card-body">
+                <h5 class="card-title">Nuova apertura cinema in centro</h5>
+                <button class="bookmark-btn">
+                    <span>Bookmark</span>
+                    <i class="bi bi-bookmark"></i>
+                </button>
+            </article>
+        </article>
         <!-- news 3 -->
-        <div class="col-sm-3">
-            <div class="card">
-                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
-                <div class="card-body">
-                    <h5 class="card-title">Perditi anche tu nella natura nel nuovo parco aperto in via Napoleone.</h5>
-                    <button class="bookmark-btn">
-                        <span>Bookmark</span>
-                        <i class="bi bi-bookmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
+        <article class="card col-sm-3">
+            <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+            <article class="card-body">
+                <h5 class="card-title">Nuova apertura cinema in centro</h5>
+                <button class="bookmark-btn">
+                    <span>Bookmark</span>
+                    <i class="bi bi-bookmark"></i>
+                </button>
+            </article>
+        </article>
         <!-- news 4 -->
-        <div class="col-sm-3">
-            <div class="card">
-                <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
-                <div class="card-body">
-                    <h5 class="card-title">Un writer in città si firma su tutti i muri. Scoppia la polemica.</h5>
-                    <button class="bookmark-btn">
-                        <span>Bookmark</span>
-                        <i class="bi bi-bookmark"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+        <article class="card col-sm-3">
+            <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
+            <article class="card-body">
+                <h5 class="card-title">Nuova apertura cinema in centro</h5>
+                <button class="bookmark-btn">
+                    <span>Bookmark</span>
+                    <i class="bi bi-bookmark"></i>
+                </button>
+            </article>
+        </article>
+    </section>
 
     <!-- News + aside column row-->
-    <div class="row news-row">
-
+    <section class="row news-row">
         <!-- Main column for news -->
-        <div class="col-md-9 main-column">
+        <main class="col-md-9 main-column">
             <!-- Big news row-->
-            <div class="row g-0 justify-content-center">
-                <div class="col-md-5 big-news-card card-body">
+            <article class="row g-0 mb-4 justify-content-center">
+                <article class="col-md-5 big-news-card card-body">
                     <h2 class="card-title">Titolo della Big News</h2>
                     <button class="bookmark-btn">
                         <span>Bookmark</span>
                         <i class="bi bi-bookmark"></i>
                     </button>
-                </div>
-                <div class="col-md-7">
+                </article>
+                <figure class="col-md-7">
                     <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
-                </div>
-            </div>
+                </figure>
+            </article>
             <!-- news row 1-->
-            <div class="row">
+            <section class="row">
                 <!-- Two coloumn flow for news -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
-                        <div class="card-body">
-                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
-                            <button class="bookmark-btn">
-                                <span>Bookmark</span>
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
-                        <div class="card-body">
-                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
-                            <button class="bookmark-btn">
-                                <span>Bookmark</span>
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                <article class="card col-md-6">
+                    <figure class="card-img-top ">
+                        <img src="assets/placeholder1000x600.jpg" class="img-fluid" alt="Notizia">
+                    </figure>
+                    <article class="card-body">
+                        <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                        <button class="bookmark-btn">
+                            <span>Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </article>
+                </article>
+                <article class="card col-md-6">
+                    <figure class="card-img-top ">
+                        <img src="assets/placeholder1000x600.jpg" class="img-fluid" alt="Notizia">
+                    </figure>
+                    <article class="card-body">
+                        <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                        <button class="bookmark-btn">
+                            <span>Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </article>
+                </article>
+            </section>
             <!-- news row 2-->
-            <div class="row">
+            <section class="row">
                 <!-- Two coloumn flow for news -->
-                <div class="col-md-6">
-                    <div class="card">
-                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
-                        <div class="card-body">
-                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
-                            <button class="bookmark-btn">
-                                <span>Bookmark</span>
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <img src="assets/placeholder1000x600.jpg" class="card-img-top img-fluid" alt="Notizia">
-                        <div class="card-body">
-                            <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
-                            <button class="bookmark-btn">
-                                <span>Bookmark</span>
-                                <i class="bi bi-bookmark"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
+                <article class="card col-md-6">
+                    <figure class="card-img-top ">
+                        <img src="assets/placeholder1000x600.jpg" class="img-fluid" alt="Notizia">
+                    </figure>
+                    <article class="card-body">
+                        <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                        <button class="bookmark-btn">
+                            <span>Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </article>
+                </article>
+                <article class="card col-md-6">
+                    <figure class="card-img-top ">
+                        <img src="assets/placeholder1000x600.jpg" class="img-fluid" alt="Notizia">
+                    </figure>
+                    <article class="card-body">
+                        <h5 class="card-title">Migranti accolti sul confine, numeri critici</h5>
+                        <button class="bookmark-btn">
+                            <span>Bookmark</span>
+                            <i class="bi bi-bookmark"></i>
+                        </button>
+                    </article>
+                </article>
+            </section>
+        </main>
         <!-- Aside news -->
-        <div class="col-md-3 aside-column">
+        <aside class="col-md-3 aside-column">
             <!-- aside news 1 -->
-            <div class="row g-2 mb-5 separator">
-                <div class="col-4 col-md-8">
+            <article class="row g-2 mb-5 separator">
+                <figure class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
-                </div>
-                <div class="col-8 col-md-4">
-                    <div class="card-body">
+                </figure>
+                <article class="card-body col-8 col-md-4">
                         <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
                             Titolo della Notizia
                         </h3>
@@ -1062,146 +1042,138 @@
                             <span class="d-none d-sm-inline">Bookmark</span>
                             <i class="bi bi-bookmark"></i>
                         </button>
-                    </div>
-                </div>
-            </div>
+                </article>
+            </article>
             <!-- aside news 2 -->
-            <div class="row g-2 mb-5 separator">
-                <div class="col-4 col-md-8">
+            <article class="row g-2 mb-5 separator">
+                <figure class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
-                </div>
-                <div class="col-8 col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
-                            Titolo della Notizia
-                        </h3>
-                        <button class="bookmark-btn">
-                            <span class="d-none d-sm-inline">Bookmark</span>
-                            <i class="bi bi-bookmark"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                </figure>
+                <article class="card-body col-8 col-md-4">
+                    <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                        Titolo della Notizia
+                    </h3>
+                    <button class="bookmark-btn">
+                        <span class="d-none d-sm-inline">Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </article>
+            </article>
             <!-- aside news 3 -->
-            <div class="row g-2 mb-5 separator">
-                <div class="col-4 col-md-8">
+            <article class="row g-2 mb-5 separator">
+                <figure class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
-                </div>
-                <div class="col-8 col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
-                            Titolo della Notizia
-                        </h3>
-                        <button class="bookmark-btn">
-                            <span class="d-none d-sm-inline">Bookmark</span>
-                            <i class="bi bi-bookmark"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                </figure>
+                <article class="card-body col-8 col-md-4">
+                    <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                        Titolo della Notizia
+                    </h3>
+                    <button class="bookmark-btn">
+                        <span class="d-none d-sm-inline">Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </article>
+            </article>
             <!-- aside news 4 -->
-            <div class="row g-2 mb-5 separator">
-                <div class="col-4 col-md-8">
+            <article class="row g-2 mb-5 separator">
+                <figure class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
-                </div>
-                <div class="col-8 col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
-                            Titolo della Notizia
-                        </h3>
-                        <button class="bookmark-btn">
-                            <span class="d-none d-sm-inline">Bookmark</span>
-                            <i class="bi bi-bookmark"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                </figure>
+                <article class="card-body col-8 col-md-4">
+                    <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                        Titolo della Notizia
+                    </h3>
+                    <button class="bookmark-btn">
+                        <span class="d-none d-sm-inline">Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </article>
+            </article>
             <!-- aside news 5 -->
-            <div class="row g-2 mb-5 separator">
-                <div class="col-4 col-md-8">
+            <article class="row g-2 mb-5 separator">
+                <figure class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
-                </div>
-                <div class="col-8 col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
-                            Titolo della Notizia
-                        </h3>
-                        <button class="bookmark-btn">
-                            <span class="d-none d-sm-inline">Bookmark</span>
-                            <i class="bi bi-bookmark"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                </figure>
+                <article class="card-body col-8 col-md-4">
+                    <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                        Titolo della Notizia
+                    </h3>
+                    <button class="bookmark-btn">
+                        <span class="d-none d-sm-inline">Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </article>
+            </article>
             <!-- aside news 6 -->
-            <div class="row g-2 mb-5 separator">
-                <div class="col-4 col-md-8">
+            <article class="row g-2 mb-5 separator">
+                <figure class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
-                </div>
-                <div class="col-8 col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
-                            Titolo della Notizia
-                        </h3>
-                        <button class="bookmark-btn">
-                            <span class="d-none d-sm-inline">Bookmark</span>
-                            <i class="bi bi-bookmark"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
+                </figure>
+                <article class="card-body col-8 col-md-4">
+                    <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                        Titolo della Notizia
+                    </h3>
+                    <button class="bookmark-btn">
+                        <span class="d-none d-sm-inline">Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </article>
+            </article>
             <!-- aside news 7 -->
-            <div class="row g-2 mb-5 separator">
-                <div class="col-4 col-md-8">
+            <article class="row g-2 mb-5 ">
+                <figure class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
-                </div>
-                <div class="col-8 col-md-4">
-                    <div class="card-body">
-                        <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
-                            Titolo della Notizia
-                        </h3>
-                        <button class="bookmark-btn">
-                            <span class="d-none d-sm-inline">Bookmark</span>
-                            <i class="bi bi-bookmark"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                </figure>
+                <article class="card-body col-8 col-md-4">
+                    <h3 class="card-title fs-6 fs-sm-5 mb-1 mb-sm-2">
+                        Titolo della Notizia
+                    </h3>
+                    <button class="bookmark-btn">
+                        <span class="d-none d-sm-inline">Bookmark</span>
+                        <i class="bi bi-bookmark"></i>
+                    </button>
+                </article>
+            </article>
+        </aside>
+    </section>
 
     <!-- postcode row -->
-    <div class="row postcode-section mb-5 mt-5">
+    <section class="row postcode-section mb-5 mt-5">
         <!-- postcode component -->
-        <div class="postcode-wrapper">
-            <div class="red-overlay">
+        <article class="postcode-wrapper">
+            <!-- red rectangle overlay -->
+            <figure class="red-overlay">
                 <h2 class="red-overlay-title">In YourArea</h2>
                 <p class="red-overlay-subtitle">Local services</p>
-            </div>
-            <img src="assets/placeholder2000x1200.jpg" alt="Background" class="background-image img-fluid rounded">
-            <div class="postcode-content">
+            </figure>
+            <!-- background+input -->
+            <figure class="background-image rounded">
+                <img src="assets/placeholder2000x1200.jpg" alt="Background" class="img-fluid">
+            </figure>
+            <article class="postcode-content">
                 <h3 class="postcode-text">Enter your postcode</h3>
                 <p class="postcode-subtext">Find local news and information near you</p>
                 <div class="input-group">
                     <input type="text" class="form-control" placeholder="Enter postcode here...">
                     <button class="btn btn-danger go-btn" type="button">Go</button>
                 </div>
-            </div>
-        </div>
-    </div>
+            </article>
+        </article>
+    </section>
 
     <!-- fullpage news row -->
-    <div class="container-fluid">
+    <section class="container-fluid">
         <!-- fullpage news component-->
-        <div class="fullpage-news-wrapper">
-            <div class="fullpage-news">
-                <div class="fullpage-news__background">
+        <section class="fullpage-news-wrapper">
+            <article class="fullpage-news">
+                <!-- background -->
+                <figure class="fullpage-news__background">
                     <img src="assets/placeholder800x400.jpg" alt="Background"
-                         class="fullpage-news__background-image img-fluid">
-                </div>
-                <div class="fullpage-news__content">
-                    <div class="fullpage-news__text">
-                        <div class="card-body">
+                         class="img-fluid">
+                </figure>
+                <!-- main component -->
+                <article class="fullpage-news__content">
+                    <article class="fullpage-news__text card-body">
                             <h2 class="fullpage-news__title">Il tuo titolo qui</h2>
                             <p class="fullpage-news__subtitle">Il tuo sottotitolo qui con testo più lungo e
                                 descrittivo</p>
@@ -1209,127 +1181,113 @@
                                 <span>Bookmark</span>
                                 <i class="bi bi-bookmark"></i>
                             </button>
-                        </div>
-                    </div>
-                    <div class="fullpage-news__image-wrapper">
+                    </article>
+                    <figure class="fullpage-news__image-wrapper">
                         <img src="assets/placeholder800x400.jpg" alt="News" class="fullpage-news__image img-fluid">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                    </figure>
+                </article>
+            </article>
+        </section>
+    </section>
 
     <!-- citation row -->
-    <div class="row">
+    <section class="row">
         <!-- citation 1 -->
-        <div class="col-12 col-sm-6 col-lg-3 mb-4">
-            <div class="citation-component">
-                <div class="citation-content">
-                    <!-- Badge rosso con testo -->
-                    <div class="citation-badge">
+        <section class="col-12 col-sm-6 col-lg-3 mb-4">
+            <article class="citation-component">
+                    <!-- red badge -->
+                    <p class="citation-badge">
                         <span class="citation-badge__text">Il tuo testo</span>
-                    </div>
-                    <div class="citation-wrapper">
-                        <!-- Container per l'immagine -->
-                        <div class="citation-image">
+                    </p>
+                <!-- main component -->
+                    <article class="citation-wrapper">
+                        <figure class="citation-image">
                             <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
-                        </div>
-                        <!-- Testo grigio sotto il badge -->
+                        </figure>
                         <p class="citation-subtitle">Il tuo sottotitolo qui</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </article>
+            </article>
+        </section>
         <!-- citation 2 -->
-        <div class="col-12 col-sm-6 col-lg-3 mb-4">
-            <div class="citation-component">
-                <div class="citation-content">
-                    <!-- Badge rosso con testo -->
-                    <div class="citation-badge">
-                        <span class="citation-badge__text">Il tuo testo</span>
-                    </div>
-                    <div class="citation-wrapper">
-                        <!-- Container per l'immagine -->
-                        <div class="citation-image">
-                            <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
-                        </div>
-                        <!-- Testo grigio sotto il badge -->
-                        <p class="citation-subtitle">Il tuo sottotitolo qui</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section class="col-12 col-sm-6 col-lg-3 mb-4">
+            <article class="citation-component">
+                <!-- red badge -->
+                <p class="citation-badge">
+                    <span class="citation-badge__text">Il tuo testo</span>
+                </p>
+                <!-- main component -->
+                <article class="citation-wrapper">
+                    <figure class="citation-image">
+                        <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
+                    </figure>
+                    <p class="citation-subtitle">Il tuo sottotitolo qui</p>
+                </article>
+            </article>
+        </section>
         <!-- citation 3 -->
-        <div class="col-12 col-sm-6 col-lg-3 mb-4">
-            <div class="citation-component">
-                <div class="citation-content">
-                    <!-- Badge rosso con testo -->
-                    <div class="citation-badge">
-                        <span class="citation-badge__text">Il tuo testo</span>
-                    </div>
-                    <div class="citation-wrapper">
-                        <!-- Container per l'immagine -->
-                        <div class="citation-image">
-                            <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
-                        </div>
-                        <!-- Testo grigio sotto il badge -->
-                        <p class="citation-subtitle">Il tuo sottotitolo qui</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section class="col-12 col-sm-6 col-lg-3 mb-4">
+            <article class="citation-component">
+                <!-- red badge -->
+                <p class="citation-badge">
+                    <span class="citation-badge__text">Il tuo testo</span>
+                </p>
+                <!-- main component -->
+                <article class="citation-wrapper">
+                    <figure class="citation-image">
+                        <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
+                    </figure>
+                    <p class="citation-subtitle">Il tuo sottotitolo qui</p>
+                </article>
+            </article>
+        </section>
         <!-- citation 4 -->
-        <div class="col-12 col-sm-6 col-lg-3 mb-4">
-            <div class="citation-component">
-                <div class="citation-content">
-                    <!-- Badge rosso con testo -->
-                    <div class="citation-badge">
-                        <span class="citation-badge__text">Il tuo testo</span>
-                    </div>
-                    <div class="citation-wrapper">
-                        <!-- Container per l'immagine -->
-                        <div class="citation-image">
-                            <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
-                        </div>
-                        <!-- Testo grigio sotto il badge -->
-                        <p class="citation-subtitle">Il tuo sottotitolo qui</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>
+        <section class="col-12 col-sm-6 col-lg-3 mb-4">
+            <article class="citation-component">
+                <!-- red badge -->
+                <p class="citation-badge">
+                    <span class="citation-badge__text">Il tuo testo</span>
+                </p>
+                <!-- main component -->
+                <article class="citation-wrapper">
+                    <figure class="citation-image">
+                        <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
+                    </figure>
+                    <p class="citation-subtitle">Il tuo sottotitolo qui</p>
+                </article>
+            </article>
+        </section>
+    </section>
+</main>
 
 <!-- FOOTER -->
 <footer class="footer">
-    <div class="footer-section links">
+    <nav class="footer-section links">
         <a href="#">NEWS</a>
         <a href="#">SPORT</a>
         <a href="#">CELEBS</a>
         <a href="#">LIFE & STYLE</a>
-    </div>
+    </nav>
 
     <div class="footer-divider"></div>
 
-    <div class="footer-section social">
-        <div class="social-buttons">
+    <nav class="footer-section social">
+        <nav class="social-buttons">
             <button title="Facebook"><i class="bi bi-facebook"></i></button>
             <button title="Instagram"><i class="bi bi-instagram"></i></button>
             <button title="X"><i class="bi bi-twitter"></i></button>
-        </div>
-    </div>
+        </nav>
+    </nav>
 
     <div class="footer-divider"></div>
 
-    <div class="footer-section images">
+    <figure class="footer-section images">
         <img src="https://via.placeholder.com/100x50" alt="Placeholder 1"/>
         <img src="https://via.placeholder.com/100x50" alt="Placeholder 2"/>
-    </div>
+    </figure>
 
     <div class="footer-divider"></div>
 
-    <div class="footer-section legal">
+    <nav class="footer-section legal">
         <a href="#">Privacy</a> |
         <a href="#">Cookie</a> |
         <a href="#">Termini</a> |
@@ -1350,28 +1308,28 @@
         <a href="#">Beta</a> |
         <a href="#">Stampa</a> |
         <a href="#">Altro</a>
-    </div>
+    </nav>
 </footer>
 
 <!-- POPUPS -->
-<div>
+<section>
     <!-- search popup -->
-    <div id="searchPopup" class="popup-box-search">
+    <section id="searchPopup" class="popup-box-search">
         <form class="d-flex">
             <input class="form-control me-2" type="search" placeholder="Cerca...">
             <button class="btn btn-primary" type="submit">Vai</button>
         </form>
-    </div>
+    </section>
 
     <!-- login popup -->
-    <div id="registerPopup" class="popup-box-login">
+    <section id="registerPopup" class="popup-box-login">
         <form>
             <label for="emailInput" class="form-label">Inserisci email:</label>
             <input type="email" class="form-control mb-2" id="emailInput" placeholder="email@example.com" required>
             <button type="submit" class="btn btn-primary w-100">Invia</button>
         </form>
-    </div>
-</div>
+    </section>
+</section>
 
 <!-- Bootstrap script + behaviour -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
