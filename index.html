@@ -1,12 +1,12 @@
 <!doctype html>
 <html lang="it">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Navbar Responsive</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-
     <style>
 
         body {
@@ -18,8 +18,8 @@
         /*-----------------------MAIN(RED) NAV BAR---------------*/
         /* Custom red navbar */
         .navbar-custom {
-            background-color: red;
-            padding: 1rem 2rem;
+            background-color: #ed002d;
+            padding: 1rem 1rem;
             position: fixed;
             top: 0;
             left: 0;
@@ -31,7 +31,8 @@
         .navbar-nav .nav-link {
             color: #fff;
             font-size: 1.5rem;
-            padding: 10px 50px;
+            padding: 1rem 1rem;
+            font-weight: 600;
         }
 
         /* White text for navigation links */
@@ -51,7 +52,7 @@
 
         /* Add space below fixed navbar */
         body {
-            padding-top: 100px;
+            padding-top: 8rem;
         }
 
         /* Styling for social and icon buttons */
@@ -60,7 +61,7 @@
             background: none;
             border: none;
             font-size: 1.5rem;
-            margin-left: 15px;
+            margin-left: 1rem;
             cursor: pointer;
             color: white;
         }
@@ -75,9 +76,9 @@
             /* Larger icons for social buttons view */
             .icon-btn, .social-buttons button {
                 font-size: 2rem;
-                margin-left: 20px;
-                margin-right: 10px;
-                margin-top: 15px;
+                margin-left: 1.25rem;
+                margin-right: 0.625rem;
+                margin-top: 0.9375rem;
             }
 
             /* Mobile menu styling */
@@ -85,18 +86,18 @@
                 background-color: black;
                 padding: 1rem 0;
                 position: absolute;
-                top: 100px;
+                top: 6.25rem;
                 left: 0;
                 width: 100%;
-                height: calc(100vh - 100px);
+                height: calc(100vh - 6.25rem);
                 overflow-y: auto;
                 z-index: 1040;
             }
 
+            /* styling for the red navbar */
             .navbar-custom {
-                background-color: red;
                 padding: 1rem 2rem;
-                height: 100px;
+                height: 6.25rem;
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -107,20 +108,19 @@
             /* Center align menu items */
             .navbar-collapse ul li {
                 text-align: center;
-                margin-bottom: 10px;
+                margin-bottom: 0.625rem;
             }
-
 
             /* Position right-side icons */
             .right-icons {
                 position: absolute;
-                top: 8px;
-                right: 16px;
+                top: 0.5rem;
+                right: 1rem;
             }
 
             /* Increase top padding for mobile layout */
             body {
-                padding-top: 120px;
+                padding-top: 7.5rem;
             }
 
             /* Disable scroll when menu is open */
@@ -147,30 +147,31 @@
         .popup-box-search {
             display: none;
             position: fixed;
-            top: 70px;
-            right: 10px;
+            top: 4.375rem;
+            right: 0.625rem;
             background-color: white;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 250px;
+            padding: 0.75rem;
+            border: 0.0625rem solid #ccc;
+            border-radius: 0.3125rem;
+            width: 15.625rem;
             z-index: 1050;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.2);
         }
 
+        /* Styling for login popup box */
         .popup-box-login {
             display: none;
-            position: absolute;
+            position: fixed;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             background-color: white;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            width: 250px;
+            padding: 0.75rem;
+            border: 0.0625rem solid #ccc;
+            border-radius: 0.3125rem;
+            width: 15.625rem;
             z-index: 1050;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.2);
         }
 
         /*----------------------NAVIGATION LINKS-----------------------*/
@@ -180,14 +181,13 @@
             font-size: 1rem;
             text-align: center;
             white-space: nowrap;
-            padding: 10px 5px;
+            padding: 0.625rem 0.3125rem;
             text-decoration: none;
-            -ms-overflow-style: none;  /* Per IE e Edge */
-            scrollbar-width: none;     /* Per Firefox */
-
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
-        /* Nascondi scrollbar per Chrome, Safari e Opera */
+        /* Hide scrollbar for Chrome, Safari and Opera */
         .bottom-bar::-webkit-scrollbar {
             display: none;
         }
@@ -198,7 +198,7 @@
             border-bottom: 1px solid #ddd;
             overflow-x: auto;
             white-space: nowrap;
-            margin-top: 20px;
+            margin-top: 1.25rem;
         }
 
         /* Layout for links in bottom bar */
@@ -226,29 +226,29 @@
             }
         }
 
-
         /*-------------NEWS SECTION(main+aside coloumn)------------------*/
 
+        /*styling for base bootstrap component used in every news*/
         .card {
-            border-radius: 0 !important;
-            border: none !important;
-            margin-bottom: 20px;
-            margin-top: 20px;
+            border-radius: 0;
+            border: none ;
+            margin-bottom: 1.25rem;
+            margin-top: 1.25rem;
             position: relative;
         }
 
         .card-body {
-            text-align: left; /* Allinea il testo a sinistra */
-            padding-left: 0 !important; /* Rimuove il padding sinistro */
-            padding-right: 0 !important; /* Rimuove il padding destro */
+            text-align: left;
+            padding-left: 0;
+            padding-right: 0;
         }
 
         .card-title, .card-text {
-            text-align: left; /* Assicura che anche titoli e testo siano allineati a sinistra */
+            text-align: left;
         }
 
         .card-img-top {
-            border-radius: 0 !important;
+            border-radius: 0;
         }
 
         /*MAIN CARD*/
@@ -261,14 +261,14 @@
         }
 
         .main-img {
-            border-bottom: 10px solid red; /* Crea una linea rossa sottile */
+            border-bottom: 0.625rem solid #ed002d; /* 10px */
         }
 
         /* Main column spacing and border */
         .main-column {
             border-right: 1px solid #ddd;
-            padding-right: 20px;
-            margin-bottom: 20px;
+            padding-right: 1.25rem;    /* 20px */
+            margin-bottom: 1.25rem;    /* 20px */
         }
 
         /*BIG NEWS CARD*/
@@ -276,7 +276,6 @@
             border-radius: 0;
             border: none;
             background-color: #2c2c2c;
-
         }
 
         .big-news-card .card-title {
@@ -287,17 +286,10 @@
             color: #fff;
         }
 
-        @media (max-width: 576px) {
-            .big-news-container {
-                margin-bottom: 3.5rem;
-                padding-bottom: 1rem;
-            }
-        }
-
         /*PAIRED NEWS*/
         /* Margin for paired news items */
         .row.news-row .col-md-6 {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
 
         /* Responsive behavior for columns */
@@ -312,26 +304,32 @@
                 padding-right: 0;
                 padding-left: 0;
                 border-right: none;
-                margin-bottom: 20px;
+                margin-bottom: 1.25rem;  /* 20px */
             }
-
         }
 
         /*ASIDE NEWS CARD*/
+
         /* Aside column spacing */
         .aside-column {
-            padding-left: 20px;
-            margin-bottom: 20px;
+            padding-left: 1.25rem;
         }
 
+        .aside-column .separator {
+            border-bottom: 0.125rem solid #e0e0e0;
+        }
+
+        .aside-column .card-body {
+            padding-bottom: 2rem;
+        }
 
         /*BOOKMARKS*/
         .card-body {
-            padding-bottom: 3rem; /* Spazio per il pulsante bookmark */
+            padding-bottom: 3rem;
         }
 
         .bookmark-btn i.bi-bookmark {
-            color: red;
+            color: #ed002d;
             margin-right: 0;
         }
 
@@ -342,11 +340,11 @@
             background: none;
             border: none;
             color: #606060;
-            padding: 8px 12px;
-            margin-bottom: 10px;
+            padding: 0.5rem 0.75rem;
+            margin-bottom: 0.625rem;
             cursor: pointer;
             transition: all 0.3s ease;
-            margin-top: 10px;
+            margin-top: 0.625rem;
             margin-left: auto;
         }
 
@@ -355,7 +353,7 @@
         }
 
         .big-news-card .bookmark-btn {
-            margin-left: 10px;
+            margin-left: 0.625rem;
             margin-right: auto;
             color: #ffffff;
         }
@@ -364,15 +362,13 @@
             font-size: 0.7rem;
         }
 
-
         /*POSTCODE SECTION*/
         .postcode-section {
             width: 100%;
             margin: 2rem 0;
             margin-bottom: 7rem !important;
-            height: 250px;
+            height: 15.625rem;
             position: relative;
-
         }
 
         .postcode-wrapper {
@@ -389,27 +385,44 @@
             overflow: hidden;
             top: 0;
             left: 0;
+            z-index: 1;
         }
 
         .postcode-content {
             position: relative;
-            z-index: 1;
+            z-index: 2;
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: flex-start; /* Cambiato da center a flex-start */
-            padding: 20px;
-            padding-left: 40px; /* Aggiunto padding a sinistra per non attaccare troppo al bordo */
+            align-items: flex-start;
+            padding-left: 2.5rem;
         }
 
+        .postcode-text {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 0.2rem;
+            align-self: flex-start;
+        }
+
+        .postcode-subtext {
+            color: #e0e0e0;
+            font-size: 1rem;
+            margin-top: -0.5rem;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+            text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+        }
+
+        /*styling the input group: text + button */
         .input-group {
             width: 80%;
-            max-width: 400px;
-            background-color: rgba(255, 255, 255, 1);
+            max-width: 25rem;
+            background-color: #FFFFFF;
             border-radius: 0.25rem;
-            padding: 3px;
-            align-self: flex-start; /* Aggiunto per assicurare l'allineamento a sinistra */
+            padding: 0.1875rem;
+            align-self: flex-start;
         }
 
         .input-group .form-control {
@@ -423,65 +436,68 @@
         }
 
         .go-btn {
-            min-width: 60px;
+            min-width: 3.75rem;
         }
 
-        .postcode-text {
-            color: white;
-            font-size: 5rem;
-            margin-bottom: 0.2rem;
-            align-self: flex-start; /* Aggiunto per assicurare l'allineamento a sinistra */
-        }
-
-        .postcode-subtext {
-            color: #e0e0e0; /* grigio chiaro */
-            font-size: 1.7rem; /* dimensione più piccola del testo */
-            margin-top: -0.5rem; /* riduce lo spazio tra titolo e sottotitolo */
-            margin-bottom: 1rem;
-            align-self: flex-start; /* mantiene l'allineamento a sinistra */
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* ombra per leggibilità come il titolo */
-        }
-
+        /*styling a red box over the postcode component */
         .red-overlay {
             position: absolute;
             right: 0;
-            top: -10%; /* Spostiamo del 50% sopra */
-            height: 120%; /* Altezza del contenitore + extra spazio sopra e sotto */
-            width: 250px;
-            margin-right: 20px;
-            background-color: red;
+            top: -10%;
+            height: 120%;
+            width: 15.625rem;
+            margin-right: 1.25rem;
+            background-color: #ed002d;
             z-index: 2;
-            display: flex; /* Aggiungiamo flex per gestire meglio il contenuto */
-            flex-direction: column; /* Organizziamo gli elementi in colonna */
-            justify-content: space-between; /* Distribuisce lo spazio tra gli elementi */
-            align-items: center; /* Centra orizzontalmente gli elementi */
-            padding: 20px 10px;
-
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0.625rem;
         }
 
         .red-overlay-title {
             color: white;
-            font-size: 1.8rem; /* Dimensione grande per il titolo */
+            font-size: 1.8rem;
             font-weight: bold;
             text-align: center;
-            line-height: 1.2; /* Migliora la leggibilità per testi su più righe */
-            margin: 0;
+            line-height: 1.2;
             margin-top: 5rem;
         }
 
         .red-overlay-subtitle {
             color: white;
-            font-size: 0.9rem; /* Dimensione piccola per il sottotitolo */
+            font-size: 0.9rem;
             text-align: center;
-            opacity: 0.9; /* Leggermente trasparente */
+            opacity: 0.9;
             margin: 0;
         }
 
+        @media (max-width: 768px) {
+            .red-overlay {
+                display: none;
+            }
+
+            .postcode-section {
+                height: auto;
+                min-height: 18.75rem;
+                margin-bottom: 3rem !important;
+            }
+
+            .postcode-content {
+                padding-right: 1.25rem;
+                width: 100%;
+            }
+
+            .input-group {
+                width: 90%;
+            }
+        }
 
         /*FULLPAGE COMPONENT*/
         .fullpage-news {
             position: relative;
-            height: 400px;
+            height: 25rem;
             overflow: hidden;
         }
 
@@ -494,7 +510,6 @@
             margin-right: -50vw;
             margin-bottom: 5rem;
         }
-
 
         .fullpage-news .bookmark-btn {
             color: #ffffff;
@@ -512,7 +527,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: blur(8px);
+            filter: blur(0.5rem);
         }
 
         .fullpage-news__content {
@@ -546,7 +561,7 @@
 
         .fullpage-news__image-wrapper {
             width: 45%;
-            height: 400px;
+            height: 25rem;
             overflow: hidden;
             margin-right: 7rem;
         }
@@ -558,25 +573,21 @@
         }
 
         @media (max-width: 768px) {
-
             .fullpage-news__content {
                 flex-direction: column-reverse;
                 justify-content: flex-start;
-                background: none; /* Rimuove lo sfondo scuro trasparente */
+                background: none;
             }
 
             .fullpage-news__text {
                 max-width: 100%;
-                width: 100vw; /* Usa viewport width per occupare tutta la larghezza */
+                width: 100vw;
                 background-color: #000;
-
-
             }
-
 
             .fullpage-news__image-wrapper {
                 width: 100%;
-                height: 250px;
+                height: 15.625rem;
                 margin-right: 0;
                 position: relative;
             }
@@ -587,35 +598,131 @@
                 bottom: 0;
                 left: 0;
                 width: 100%;
-                height: 50px; /* Altezza del fade */
-                background: linear-gradient(to bottom, transparent, #000); /* Effetto fade verso il nero */
-                pointer-events: none; /* Permette di cliccare attraverso il fade */
+                height: 3.125rem;
+                background: linear-gradient(to bottom, transparent, #000);
+                pointer-events: none;
             }
 
             .fullpage-news {
                 height: auto;
-                min-height: 500px;
+                min-height: 31.25rem;
             }
 
             .fullpage-news__title {
                 text-align: center;
-                max-width: 90%; /* Dà un po' di respiro ai lati */
+                max-width: 90%;
                 margin-left: -3rem;
                 margin-right: auto;
-
                 font-size: 2rem;
             }
 
             .fullpage-news__subtitle {
-                display:none;
+                display: none;
             }
 
-            /* Rimuoviamo lo sfondo sfocato su mobile */
             .fullpage-news__background {
                 display: none;
             }
         }
 
+        /*CITATION COMPONENT*/
+        .citation-component {
+            width: 100%;
+            background-color: hsl(349, 100%, 96%);
+            padding: 1rem 1rem 0 0;
+            position: relative;
+            border-bottom: 0.3125rem solid #4a4a4a;
+            min-height: 18.75rem;
+            display: flex;
+        }
+
+        .citation-content {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            min-height: inherit;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .citation-badge {
+            display: inline-block;
+            background-color: #ed002d;
+            padding: 0.5rem 0.5rem;
+            margin-bottom: 1rem;
+            margin-left: 0;
+            width: 40%;
+        }
+
+        .citation-badge__text {
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .citation-subtitle {
+            color: #4a4a4a;
+            font-size: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .citation-image {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            max-width: 12.5rem;
+        }
+
+        .citation-image__img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 992px) {
+            .citation-component {
+                min-height: auto;
+                border-bottom: none;
+            }
+
+            .citation-content {
+                flex-direction: column;
+                align-items: start;
+                gap: 1rem;
+            }
+
+            .citation-badge {
+                width: auto;
+                min-width: 7.5rem;
+                margin-bottom: 0;
+            }
+
+            .citation-wrapper {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+                flex: 1;
+                flex-wrap: nowrap;
+                overflow: hidden;
+            }
+
+            .citation-badge__text {
+                font-size: 0.9rem;
+            }
+
+            .citation-subtitle {
+                margin: 0;
+                font-size: 0.9rem;
+                flex: 1;
+            }
+
+            .citation-image {
+                position: relative;
+                max-width: 5rem;
+                margin: 0;
+            }
+        }
 
         /*FOOTER*/
         .footer {
@@ -630,10 +737,9 @@
             margin: 1.5rem auto;
         }
 
-
         .footer-divider {
             width: 80%;
-            height: 5px;
+            height: 0.3125rem;
             background-color: #333;
             margin: 1rem auto;
         }
@@ -646,8 +752,8 @@
         }
 
         .footer .links a {
-            font-size: 1.6rem; /* aumenta la dimensione del testo */
-            color: #ccc; /* grigio chiaro */
+            font-size: 1.6rem;
+            color: #ccc;
             text-decoration: none;
             margin: 0 5rem;
         }
@@ -666,16 +772,16 @@
         }
 
         .footer .social-buttons button {
-            width: 24px;
-            height: 24px;
+            width: 1.5rem;
+            height: 1.5rem;
             margin: 0 3rem;
             vertical-align: middle;
             position: relative;
         }
 
         .footer .images img {
-            width: 100px;
-            height: 50px;
+            width: 6.25rem;
+            height: 3.125rem;
             margin: 0 0.5rem;
         }
 
@@ -691,7 +797,6 @@
             margin: 0 0.3rem;
         }
 
-        /* Responsive per schermi piccoli */
         @media (max-width: 576px) {
             .footer .links {
                 display: grid;
@@ -707,7 +812,6 @@
                 text-align: center;
             }
         }
-
     </style>
 </head>
 
@@ -715,15 +819,18 @@
 <!-- RED NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-custom">
     <div class="container-fluid">
+        <!-- hamburger menu -->
         <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>  <!-- Hamburger icon -->
+            <span class="navbar-toggler-icon"></span>
         </button>
 
+        <!-- website logo -->
         <a class="navbar-brand d-none d-lg-block" href="#">
             <img src="assets/logo.jpg" alt="Logo" height="55" width="100">
         </a>
 
+        <!-- navbar menu -->
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="#">NEWS</a></li>
@@ -768,6 +875,7 @@
 
 <!-- LINK BAR -->
 <div class="bottom-bar">
+    <!-- links -->
     <div class="links-wrapper">
         <a class="nav-link" href="#">BUY A PAPER</a>
         <a class="nav-link" href="#">ROAD RECORD</a>
@@ -808,6 +916,7 @@
 
     <!-- 4 aligned news row -->
     <div class="row mb-4">
+        <!-- news 1 -->
         <div class="col-sm-3">
             <div class="card">
                 <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
@@ -820,6 +929,7 @@
                 </div>
             </div>
         </div>
+        <!-- news 2 -->
         <div class="col-sm-3">
             <div class="card">
                 <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
@@ -832,6 +942,7 @@
                 </div>
             </div>
         </div>
+        <!-- news 3 -->
         <div class="col-sm-3">
             <div class="card">
                 <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
@@ -844,6 +955,7 @@
                 </div>
             </div>
         </div>
+        <!-- news 4 -->
         <div class="col-sm-3">
             <div class="card">
                 <img src="assets/placeholder450x300.jpg" class="card-img-top img-fluid mb-4" alt="Notizia secondaria">
@@ -860,7 +972,8 @@
 
     <!-- News + aside column row-->
     <div class="row news-row">
-        <!-- Main(left) column for news -->
+
+        <!-- Main column for news -->
         <div class="col-md-9 main-column">
             <!-- Big news row-->
             <div class="row g-0 justify-content-center">
@@ -932,10 +1045,11 @@
                 </div>
             </div>
         </div>
+
         <!-- Aside news -->
         <div class="col-md-3 aside-column">
             <!-- aside news 1 -->
-            <div class="row g-2 mb-5">
+            <div class="row g-2 mb-5 separator">
                 <div class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
                 </div>
@@ -952,7 +1066,7 @@
                 </div>
             </div>
             <!-- aside news 2 -->
-            <div class="row g-2 mb-5">
+            <div class="row g-2 mb-5 separator">
                 <div class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
                 </div>
@@ -969,7 +1083,7 @@
                 </div>
             </div>
             <!-- aside news 3 -->
-            <div class="row g-2 mb-5">
+            <div class="row g-2 mb-5 separator">
                 <div class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
                 </div>
@@ -986,7 +1100,7 @@
                 </div>
             </div>
             <!-- aside news 4 -->
-            <div class="row g-2 mb-5">
+            <div class="row g-2 mb-5 separator">
                 <div class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
                 </div>
@@ -1003,7 +1117,7 @@
                 </div>
             </div>
             <!-- aside news 5 -->
-            <div class="row g-2 mb-5">
+            <div class="row g-2 mb-5 separator">
                 <div class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
                 </div>
@@ -1020,7 +1134,7 @@
                 </div>
             </div>
             <!-- aside news 6 -->
-            <div class="row g-2 mb-5">
+            <div class="row g-2 mb-5 separator">
                 <div class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
                 </div>
@@ -1037,7 +1151,7 @@
                 </div>
             </div>
             <!-- aside news 7 -->
-            <div class="row g-2 mb-5">
+            <div class="row g-2 mb-5 separator">
                 <div class="col-4 col-md-8">
                     <img src="assets/placeholder800x400.jpg" class="img-fluid" alt="Notizia">
                 </div>
@@ -1078,32 +1192,112 @@
 
     <!-- fullpage news row -->
     <div class="container-fluid">
-            <!-- fullpage news component-->
-            <div class="fullpage-news-wrapper">
-                <div class="fullpage-news">
-                    <div class="fullpage-news__background">
-                        <img src="assets/placeholder800x400.jpg" alt="Background"
-                             class="fullpage-news__background-image img-fluid">
+        <!-- fullpage news component-->
+        <div class="fullpage-news-wrapper">
+            <div class="fullpage-news">
+                <div class="fullpage-news__background">
+                    <img src="assets/placeholder800x400.jpg" alt="Background"
+                         class="fullpage-news__background-image img-fluid">
+                </div>
+                <div class="fullpage-news__content">
+                    <div class="fullpage-news__text">
+                        <div class="card-body">
+                            <h2 class="fullpage-news__title">Il tuo titolo qui</h2>
+                            <p class="fullpage-news__subtitle">Il tuo sottotitolo qui con testo più lungo e
+                                descrittivo</p>
+                            <button class="bookmark-btn">
+                                <span>Bookmark</span>
+                                <i class="bi bi-bookmark"></i>
+                            </button>
+                        </div>
                     </div>
-                    <div class="fullpage-news__content">
-                        <div class="fullpage-news__text">
-                            <div class="card-body">
-                                <h2 class="fullpage-news__title">Il tuo titolo qui</h2>
-                                <p class="fullpage-news__subtitle">Il tuo sottotitolo qui con testo più lungo e
-                                    descrittivo</p>
-                                <button class="bookmark-btn">
-                                    <span>Bookmark</span>
-                                    <i class="bi bi-bookmark"></i>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="fullpage-news__image-wrapper">
-                            <img src="assets/placeholder800x400.jpg" alt="News" class="fullpage-news__image img-fluid">
-                        </div>
+                    <div class="fullpage-news__image-wrapper">
+                        <img src="assets/placeholder800x400.jpg" alt="News" class="fullpage-news__image img-fluid">
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+
+    <!-- citation row -->
+    <div class="row">
+        <!-- citation 1 -->
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="citation-component">
+                <div class="citation-content">
+                    <!-- Badge rosso con testo -->
+                    <div class="citation-badge">
+                        <span class="citation-badge__text">Il tuo testo</span>
+                    </div>
+                    <div class="citation-wrapper">
+                        <!-- Container per l'immagine -->
+                        <div class="citation-image">
+                            <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
+                        </div>
+                        <!-- Testo grigio sotto il badge -->
+                        <p class="citation-subtitle">Il tuo sottotitolo qui</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- citation 2 -->
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="citation-component">
+                <div class="citation-content">
+                    <!-- Badge rosso con testo -->
+                    <div class="citation-badge">
+                        <span class="citation-badge__text">Il tuo testo</span>
+                    </div>
+                    <div class="citation-wrapper">
+                        <!-- Container per l'immagine -->
+                        <div class="citation-image">
+                            <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
+                        </div>
+                        <!-- Testo grigio sotto il badge -->
+                        <p class="citation-subtitle">Il tuo sottotitolo qui</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- citation 3 -->
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="citation-component">
+                <div class="citation-content">
+                    <!-- Badge rosso con testo -->
+                    <div class="citation-badge">
+                        <span class="citation-badge__text">Il tuo testo</span>
+                    </div>
+                    <div class="citation-wrapper">
+                        <!-- Container per l'immagine -->
+                        <div class="citation-image">
+                            <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
+                        </div>
+                        <!-- Testo grigio sotto il badge -->
+                        <p class="citation-subtitle">Il tuo sottotitolo qui</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- citation 4 -->
+        <div class="col-12 col-sm-6 col-lg-3 mb-4">
+            <div class="citation-component">
+                <div class="citation-content">
+                    <!-- Badge rosso con testo -->
+                    <div class="citation-badge">
+                        <span class="citation-badge__text">Il tuo testo</span>
+                    </div>
+                    <div class="citation-wrapper">
+                        <!-- Container per l'immagine -->
+                        <div class="citation-image">
+                            <img src="assets/placeholder80x100.jpg" alt="citation image" class="citation-image__img">
+                        </div>
+                        <!-- Testo grigio sotto il badge -->
+                        <p class="citation-subtitle">Il tuo sottotitolo qui</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>
 
@@ -1214,12 +1408,10 @@
     // Rileva il cambiamento delle dimensioni della finestra
     window.addEventListener('resize', function () {
         if (window.innerWidth > 992) {
-            // Se lo schermo è più grande di 992px, chiudi il menu
             const navbarCollapse = document.getElementById('navbarNav');
             if (navbarCollapse.classList.contains('show')) {
-                // Chiudi il menu
                 const bootstrapCollapse = new bootstrap.Collapse(navbarCollapse, {
-                    toggle: false // Impedisce l'uso del toggle
+                    toggle: false
                 });
                 bootstrapCollapse.hide();
             }
@@ -1238,7 +1430,6 @@
             }
         }
     });
-
     navbarCollapse.addEventListener('hidden.bs.collapse', () => {
         if (window.innerWidth < 768) {
             document.body.classList.remove('mobile-menu-open');
@@ -1250,6 +1441,6 @@
         }
     });
 </script>
-
 </body>
+
 </html>
