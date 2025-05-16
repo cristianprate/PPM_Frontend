@@ -1,0 +1,795 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+figure {
+    margin-bottom: 0;
+    margin: 0;
+}
+
+/*-----------------------MAIN(RED) NAV BAR---------------*/
+/* Custom red navbar */
+.navbar-custom {
+    background-color: #ed002d;
+    padding: 1rem 1rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1050;
+}
+
+/* Styling for navigation links */
+.navbar-nav .nav-link {
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 1rem 1rem;
+    font-weight: 600;
+}
+
+/* White text for navigation links */
+.navbar-nav .nav-link {
+    color: white;
+}
+
+/* Hover color for navigation links */
+.navbar-nav .nav-link:hover {
+    color: #817b7b;
+}
+
+/* Hide social buttons in hamburger menu when closed */
+.navbar-collapse .social-buttons.d-md-none {
+    display: none;
+}
+
+/* Add space below fixed navbar */
+body {
+    padding-top: 8rem;
+}
+
+/* Styling for social and icon buttons */
+.social-buttons button,
+.icon-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    color: white;
+}
+
+/* Responsive for red navbar behavior */
+@media (max-width: 992px) {
+    /* Hide brand logo on small screens */
+    .navbar-brand {
+        display: none;
+    }
+
+    /* Larger icons for social buttons view */
+    .icon-btn, .social-buttons button {
+        font-size: 2rem;
+        margin-left: 1.25rem;
+        margin-right: 0.625rem;
+        margin-top: 0.9375rem;
+    }
+
+    /* Mobile menu styling */
+    .navbar-collapse {
+        background-color: black;
+        padding: 1rem 0;
+        position: absolute;
+        top: 6.25rem;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 6.25rem);
+        overflow-y: auto;
+        z-index: 1040;
+    }
+
+    /* styling for the red navbar */
+    .navbar-custom {
+        padding: 1rem 2rem;
+        height: 6.25rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1050;
+    }
+
+    /* Center align menu items */
+    .navbar-collapse ul li {
+        text-align: center;
+        margin-bottom: 0.625rem;
+    }
+
+    /* Position right-side icons */
+    .right-icons {
+        position: absolute;
+        top: 0.5rem;
+        right: 1rem;
+    }
+
+    /* Increase top padding for mobile layout */
+    body {
+        padding-top: 7.5rem;
+    }
+
+    /* Disable scroll when menu is open */
+    body.mobile-menu-open {
+        overflow: hidden;
+    }
+
+    /* Hide search button in mobile menu */
+    body.mobile-menu-open .right-icons #searchBtn {
+        display: none;
+    }
+
+    /* Show social buttons in mobile menu */
+    body.mobile-menu-open .social-buttons.d-md-none {
+        display: flex;
+        justify-content: center;
+        margin-top: 0;
+    }
+}
+
+/*---------------------POP UP BOXES(search+login)------------------------*/
+
+/* Styling for search popup box */
+.popup-box-search {
+    display: none;
+    position: fixed;
+    top: 4.375rem;
+    right: 0.625rem;
+    background-color: white;
+    padding: 0.75rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    width: 15.625rem;
+    z-index: 1050;
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/* Styling for login popup box */
+.popup-box-login {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 0.75rem;
+    border: 0.0625rem solid #ccc;
+    border-radius: 0.3125rem;
+    width: 15.625rem;
+    z-index: 1050;
+    box-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+/*----------------------NAVIGATION LINKS-----------------------*/
+/* Styling for bottom bar links */
+.bottom-bar .nav-link {
+    color: #6c6262;
+    font-size: 1rem;
+    text-align: center;
+    white-space: nowrap;
+    padding: 0.625rem 0.3125rem;
+    text-decoration: none;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.bottom-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* Bottom navigation bar */
+.bottom-bar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-top: 1.25rem;
+}
+
+/* Layout for links in bottom bar */
+.bottom-bar .links-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem;
+    flex-wrap: nowrap;
+}
+
+/* Ensure white background for bottom bar */
+.bottom-bar {
+    background-color: #ffffff;
+}
+
+/* Hover effect for bottom bar links */
+.bottom-bar .nav-link:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .bottom-bar .nav-link {
+        color: #000000;
+        font-weight: 600;
+    }
+}
+
+/*-------------NEWS SECTION(main+aside coloumn)------------------*/
+
+/*styling for base bootstrap component used in every news*/
+.card {
+    border-radius: 0;
+    border: none;
+    margin-bottom: 1.25rem;
+    margin-top: 1.25rem;
+    position: relative;
+}
+
+.card-body {
+    text-align: left;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.card-title, .card-text {
+    text-align: left;
+}
+
+.card-img-top {
+    border-radius: 0;
+}
+
+/*MAIN CARD*/
+/* Card main body styling */
+.card-body-main {
+    background-color: #2c2c2c;
+    color: #ffffff;
+    text-align: center !important;
+    padding: 1rem;
+}
+
+.main-img {
+    border-bottom: 0.625rem solid #ed002d; /* 10px */
+}
+
+/* Main column spacing and border */
+.main-column {
+    border-right: 1px solid #ddd;
+    padding-right: 1.25rem; /* 20px */
+    margin-bottom: 1.25rem; /* 20px */
+}
+
+/*BIG NEWS CARD*/
+.big-news-card {
+    border-radius: 0;
+    border: none;
+    background-color: #2c2c2c;
+}
+
+.big-news-card .card-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    color: #fff;
+}
+
+/*PAIRED NEWS*/
+/* Margin for paired news items */
+.row.news-row .col-md-6 {
+    margin-bottom: 1.25rem;
+}
+
+/* Responsive behavior for columns */
+@media (max-width: 768px) {
+    .news-row {
+        flex-direction: column;
+    }
+
+    .main-column,
+    .aside-column {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        border-right: none;
+        margin-bottom: 1.25rem; /* 20px */
+    }
+}
+
+/*ASIDE NEWS CARD*/
+
+/* Aside column spacing */
+.aside-column {
+    padding-left: 1.25rem;
+}
+
+.aside-column .separator {
+    border-bottom: 0.125rem solid #e0e0e0;
+}
+
+.aside-column .card-body {
+    padding-bottom: 2rem;
+}
+
+/*BOOKMARKS*/
+.card-body {
+    padding-bottom: 3rem;
+}
+
+.bookmark-btn i.bi-bookmark {
+    color: #ed002d;
+    margin-right: 0;
+}
+
+.bookmark-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: none;
+    border: none;
+    color: #606060;
+    padding: 0.5rem 0.75rem;
+    margin-bottom: 0.625rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.625rem;
+    margin-left: auto;
+}
+
+.card-body-main .bookmark-btn {
+    color: #ffffff;
+}
+
+.big-news-card .bookmark-btn {
+    margin-left: 0.625rem;
+    margin-right: auto;
+    color: #ffffff;
+}
+
+.bookmark-btn i {
+    font-size: 0.7rem;
+}
+
+/*POSTCODE SECTION*/
+.postcode-section {
+    width: 100%;
+    margin: 2rem 0;
+    margin-bottom: 7rem !important;
+    height: 15.625rem;
+    position: relative;
+}
+
+.postcode-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.background-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.postcode-content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-left: 2.5rem;
+}
+
+.postcode-text {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0.2rem;
+    align-self: flex-start;
+}
+
+.postcode-subtext {
+    color: #e0e0e0;
+    font-size: 1rem;
+    margin-top: -0.5rem;
+    margin-bottom: 1rem;
+    align-self: flex-start;
+    text-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.5);
+}
+
+/*styling the input group: text + button */
+.input-group {
+    width: 80%;
+    max-width: 25rem;
+    background-color: #FFFFFF;
+    border-radius: 0.25rem;
+    padding: 0.1875rem;
+    align-self: flex-start;
+}
+
+.input-group .form-control {
+    border: none;
+    background: transparent;
+}
+
+.input-group .form-control:focus {
+    box-shadow: none;
+    background: white;
+}
+
+.go-btn {
+    min-width: 3.75rem;
+}
+
+/*styling a red box over the postcode component */
+.red-overlay {
+    position: absolute;
+    right: 0;
+    top: -10%;
+    height: 120%;
+    width: 15.625rem;
+    margin-right: 1.25rem;
+    background-color: #ed002d;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 0.625rem;
+}
+
+.red-overlay-title {
+    color: white;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1.2;
+    margin-top: 5rem;
+}
+
+.red-overlay-subtitle {
+    color: white;
+    font-size: 0.9rem;
+    text-align: center;
+    opacity: 0.9;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .red-overlay {
+        display: none;
+    }
+
+    .postcode-section {
+        height: auto;
+        min-height: 18.75rem;
+        margin-bottom: 3rem !important;
+    }
+
+    .postcode-content {
+        padding-right: 1.25rem;
+        width: 100%;
+    }
+
+    .input-group {
+        width: 90%;
+    }
+}
+
+/*FULLPAGE COMPONENT*/
+.fullpage-news {
+    position: relative;
+    height: 25rem;
+    overflow: hidden;
+}
+
+.fullpage-news-wrapper {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    margin-bottom: 5rem;
+}
+
+.fullpage-news .bookmark-btn {
+    color: #ffffff;
+}
+
+.fullpage-news__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(0.5rem);
+}
+
+
+.fullpage-news__content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.fullpage-news__text {
+    position: relative;
+    max-width: 45%;
+    padding-left: 8rem;
+}
+
+.fullpage-news__title {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.fullpage-news__subtitle {
+    color: #e0e0e0;
+    font-size: 1.2rem;
+    line-height: 1.6;
+}
+
+.fullpage-news__image-wrapper {
+    width: 45%;
+    height: 25rem;
+    overflow: hidden;
+    margin-right: 7rem;
+}
+
+.fullpage-news__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .fullpage-news__content {
+        flex-direction: column-reverse;
+        justify-content: flex-start;
+        background: none;
+    }
+
+    .fullpage-news__text {
+        max-width: 100%;
+        width: 100vw;
+        background-color: #000;
+    }
+
+    .fullpage-news__image-wrapper {
+        width: 100%;
+        height: 15.625rem;
+        margin-right: 0;
+        position: relative;
+    }
+
+    .fullpage-news__image-wrapper::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3.125rem;
+        background: linear-gradient(to bottom, transparent, #000);
+        pointer-events: none;
+    }
+
+    .fullpage-news {
+        height: auto;
+        min-height: 31.25rem;
+    }
+
+    .fullpage-news__title {
+        text-align: center;
+        max-width: 90%;
+        margin-left: -3rem;
+        margin-right: auto;
+        font-size: 2rem;
+    }
+
+    .fullpage-news__subtitle {
+        display: none;
+    }
+
+    .fullpage-news__background {
+        display: none;
+    }
+}
+
+/*CITATION COMPONENT*/
+.citation-component {
+    width: 100%;
+    height: 100%;
+    background-color: hsl(349, 100%, 96%);
+    padding: 1rem 1rem 0 0;
+    position: relative;
+    border-bottom: 0.3125rem solid #4a4a4a;
+    min-height: 18.75rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.citation-badge {
+    display: inline-block;
+    background-color: #ed002d;
+    padding: 0.5rem 0.5rem;
+    margin-bottom: 1rem;
+    margin-left: 0;
+    width: 40%;
+}
+
+.citation-badge__text {
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.citation-subtitle {
+    color: #4a4a4a;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    margin-left:1rem;
+}
+
+.citation-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    max-width: 12.5rem;
+}
+
+.citation-image__img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 992px) {
+    .citation-component {
+        min-height: auto;
+        border-bottom: none;
+        flex-direction: column;
+        align-items: start;
+        gap: 1rem;
+    }
+
+    .citation-badge {
+        width: auto;
+        min-width: 7.5rem;
+        margin-bottom: 0;
+    }
+
+    .citation-wrapper {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        flex: 1;
+        flex-wrap: nowrap;
+        overflow: hidden;
+    }
+
+    .citation-badge__text {
+        font-size: 0.9rem;
+    }
+
+    .citation-subtitle {
+
+        font-size: 0.9rem;
+        flex: 1;
+    }
+
+    .citation-image {
+        position: relative;
+        max-width: 5rem;
+        margin: 0;
+    }
+}
+
+/*FOOTER*/
+.footer {
+    background-color: #000;
+    color: white;
+    padding: 2rem 1rem;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.footer-section {
+    margin: 1.5rem auto;
+}
+
+.footer-divider {
+    width: 80%;
+    height: 0.3125rem;
+    background-color: #333;
+    margin: 1rem auto;
+}
+
+.footer a {
+    color: #606060;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 0.9rem;
+}
+
+.footer .links a {
+    font-size: 1.6rem;
+    color: #ccc;
+    text-decoration: none;
+    margin: 0 5rem;
+}
+
+.footer .links a:hover,
+.footer .legal a:hover {
+    text-decoration: underline;
+}
+
+.footer .social-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.footer .social-buttons button {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin: 0 3rem;
+    vertical-align: middle;
+    position: relative;
+}
+
+.footer .images img {
+    width: 6.25rem;
+    height: 3.125rem;
+    margin: 0 0.5rem;
+}
+
+.footer .legal {
+    font-size: 0.7rem;
+    line-height: 1.5;
+    flex-wrap: wrap;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.footer .legal a {
+    margin: 0 0.3rem;
+}
+
+@media (max-width: 576px) {
+    .footer .links {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1rem;
+    }
+
+    .footer .links a {
+        width: 100%;
+        margin: 0;
+        font-size: 1.4rem;
+        text-align: center;
+    }
+}
