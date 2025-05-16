@@ -6,7 +6,6 @@ body {
 
 figure {
     margin-bottom: 0;
-    margin: 0;
 }
 
 /*-----------------------MAIN(RED) NAV BAR---------------*/
@@ -726,7 +725,7 @@ body {
 }
 
 .footer a {
-    color: #606060;
+    color: #9e9a9a;
     text-decoration: none;
     margin: 0 1rem;
     font-size: 0.9rem;
